@@ -186,11 +186,11 @@ function App() {
         <div className="hero-content relative z-10 flex flex-col items-center justify-center text-white px-6 mt-16 w-full max-w-5xl mx-auto">
           <div className="relative text-center">
             <h1 className="hero-headline font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-white drop-shadow-lg">
-              Beauty, Events <span className="italic font-serif text-champagne/90">& Style.</span>
+              Beauty, Events <span className="italic font-serif text-white drop-shadow-2xl">& Style.</span>
             </h1>
           </div>
           
-          <p className="hero-subheadline mt-10 text-center max-w-md text-sm md:text-base font-light tracking-wide leading-relaxed text-white/90 drop-shadow-md">
+          <p className="hero-subheadline mt-10 text-center max-w-md text-sm md:text-base font-light tracking-wide leading-relaxed text-white drop-shadow-md italic font-serif">
             ...your go to for all things beauty
           </p>
           
@@ -425,7 +425,9 @@ function App() {
           </div>
           
           <div className="portfolio-reveal mt-20 text-center">
-            <button className="text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
+            <button 
+              onClick={() => scrollToSection(contactRef)}
+              className="text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
               Request full portfolio
             </button>
           </div>
