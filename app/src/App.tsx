@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  ArrowRight,
+import {
   Menu,
   X,
   Palette,
@@ -504,7 +503,7 @@ function App() {
                   </div>
                   
                   <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full bg-charcoal text-white">
-                    Request booking
+                    SUBMIT REQUEST
                   </button>
                 </form>
               </div>
