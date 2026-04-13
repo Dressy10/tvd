@@ -5,7 +5,6 @@ import {
   Sparkles, 
   Heart, 
   Star, 
-  ArrowDown, 
   Calendar, 
   Scissors, 
   Palette, 
