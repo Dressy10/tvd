@@ -41,13 +41,11 @@ function App() {
     : portfolioData.filter(item => item.category === activeFilter);
 
   useEffect(() => {
-    // Scroll listener for the header
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
-    // GSAP Animations
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
@@ -143,7 +141,7 @@ function App() {
           ))}
           <button 
             onClick={() => scrollToSection(contactRef)}
-            className="btn-editorial text-xs uppercase tracking-widest py-3 px-8 bg-charcoal text-white hover:bg-champagne hover:border-champagne"
+            className="btn-editorial text-xs uppercase tracking-widest py-3 px-8 bg-charcoal text-white hover:bg-champagne hover:border-champagne rounded-full"
           >
             Book
           </button>
@@ -171,7 +169,7 @@ function App() {
           ))}
           <button 
             onClick={() => scrollToSection(contactRef)}
-            className="btn-editorial mt-8 py-4 px-12 text-sm bg-charcoal text-white"
+            className="btn-editorial mt-8 py-4 px-12 text-sm bg-charcoal text-white rounded-full"
           >
             Book a session
           </button>
@@ -199,7 +197,7 @@ function App() {
           <div className="hero-cta mt-12">
             <button 
               onClick={() => scrollToSection(contactRef)}
-              className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em]"
+              className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full"
             >
               Book a session
             </button>
@@ -219,7 +217,7 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            <div className="service-reveal lg:col-span-7 rounded-none overflow-hidden relative group">
+            <div className="service-reveal lg:col-span-7 rounded-3xl overflow-hidden relative group">
               <img src="/images/event_balloon_arch.jpg" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 lg:p-12 text-white">
@@ -237,7 +235,7 @@ function App() {
                 { title: "Nail Art & Care", desc: "Gel, extensions, intricate art, manicures & pedicures.", icon: Gem },
                 { title: "Hair, Wigs & Piercing", desc: "Installations, braiding, custom wigs, safe piercing.", icon: Scissors }
               ].map((service, idx) => (
-                <div key={idx} className="service-reveal bg-white p-8 border border-charcoal/5 hover:border-champagne/40 transition-colors duration-500 flex gap-6 items-start group">
+                <div key={idx} className="service-reveal bg-white p-8 border border-charcoal/5 hover:border-champagne/40 transition-colors duration-500 flex gap-6 items-start group rounded-3xl">
                   <service.icon className="w-6 h-6 text-champagne/80 mt-1 stroke-[1.5] group-hover:scale-110 transition-transform duration-500" />
                   <div>
                     <h4 className="font-display text-xl font-normal text-charcoal tracking-wide">{service.title}</h4>
@@ -272,7 +270,7 @@ function App() {
           </p>
           <button 
             onClick={() => scrollToSection(contactRef)}
-            className="event-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10"
+            className="event-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10 rounded-full"
           >
             Plan your event
           </button>
@@ -284,7 +282,7 @@ function App() {
         <div className="px-6 lg:px-16 max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
             <div className="hair-reveal w-full lg:w-1/2 relative">
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden rounded-3xl">
                 <img src="/images/hair_braids.jpg" alt="Hair styling" className="w-full h-full object-cover grayscale-[20%]" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-champagne/10 rounded-full blur-2xl z-[-1]"></div>
@@ -306,7 +304,7 @@ function App() {
 
           <div ref={nailsRef} className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="nails-reveal w-full lg:w-1/2 relative">
-              <div className="aspect-[4/5] overflow-hidden">
+              <div className="aspect-[4/5] overflow-hidden rounded-3xl">
                 <img src="/images/nails_art.jpg" alt="Nail art" className="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
@@ -327,7 +325,7 @@ function App() {
         </div>
       </section>
 
-      {/* Section 6: Makeup (Restored as a beautiful full width image block) */}
+      {/* Section 6: Makeup */}
       <section ref={makeupRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="makeup-reveal absolute inset-0">
           <img src="/images/makeup_portrait.jpg" alt="Makeup styling" className="w-full h-full object-cover scale-105" loading="lazy" />
@@ -343,7 +341,7 @@ function App() {
           </p>
           <button 
             onClick={() => scrollToSection(contactRef)}
-            className="makeup-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10"
+            className="makeup-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10 rounded-full"
           >
             Book makeup session
           </button>
@@ -368,7 +366,7 @@ function App() {
             
             <button 
               onClick={() => scrollToSection(contactRef)}
-              className="mt-10 btn-editorial py-4 px-10 text-xs uppercase tracking-[0.2em]"
+              className="mt-10 btn-editorial py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full"
             >
               Join the waitlist
             </button>
@@ -380,14 +378,11 @@ function App() {
               { title: "Nail Technology", time: "6-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians." },
               { title: "Event Styling Basics", time: "2-week workshop", desc: "Learn balloon design, tablescapes, and backdrop creation." }
             ].map((course, idx) => (
-              <div key={idx} className="training-reveal bg-white p-10 lg:p-14 hover:bg-ivory transition-colors duration-500 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group">
+              <div key={idx} className="training-reveal bg-white p-10 lg:p-14 hover:bg-ivory transition-colors duration-500 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group rounded-3xl">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne">{course.time}</span>
                 <h4 className="font-display text-2xl font-normal text-charcoal mt-6 mb-6">{course.title}</h4>
                 <p className="text-sm text-soft-gray font-light mb-8 leading-relaxed">{course.desc}</p>
                 <div className="w-8 h-[1px] bg-charcoal/20"></div>
-                <button className="mt-8 text-xs font-light text-soft-gray flex items-center gap-2 group-hover:text-charcoal transition-colors">
-                  View Syllabus <ArrowRight className="w-3 h-3" />
-                </button>
               </div>
             ))}
           </div>
@@ -426,7 +421,7 @@ function App() {
               <p className="text-soft-gray font-light mt-10">No portfolio items found for this category yet.</p>
             ) : (
               filteredPortfolio.map((item) => (
-                <div key={item.id} className={`portfolio-reveal ${item.aspect} overflow-hidden group bg-gray-100 ${item.offset} animate-in fade-in zoom-in duration-500`}>
+                <div key={item.id} className={`portfolio-reveal ${item.aspect} overflow-hidden group bg-gray-100 ${item.offset} animate-in fade-in zoom-in duration-500 rounded-3xl`}>
                   <img src={item.src} alt={item.category} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
                 </div>
               ))
@@ -441,7 +436,7 @@ function App() {
         </div>
       </section>
 
-      {/* Section 9: Contact (Web3Forms Integrated) */}
+      {/* Section 9: Contact */}
       <section ref={contactRef} className="py-24 lg:py-40 bg-[#F5F3EF]">
         <div className="px-6 lg:px-16 max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
@@ -472,14 +467,13 @@ function App() {
             </div>
             
             <div className="contact-reveal w-full lg:w-7/12">
-              <div className="bg-ivory p-8 lg:p-12 border border-charcoal/10">
+              <div className="bg-ivory p-8 lg:p-12 border border-charcoal/10 rounded-3xl">
                 <h3 className="font-display text-2xl font-light text-charcoal mb-8">Request a booking or training slot</h3>
                 <form 
                   action="https://api.web3forms.com/submit" 
                   method="POST" 
                   className="space-y-8"
                 >
-                  {/* REPLACE THIS WITH YOUR WEB3FORMS ACCESS KEY */}
                   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -511,7 +505,7 @@ function App() {
                     <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
-                  <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4">
+                  <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full">
                     Request booking
                   </button>
                 </form>
