@@ -2,14 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
-  Sparkles, 
-  Heart, 
   ArrowRight,
   Menu,
   X,
   Palette,
   Gem,
-  Scissors
+  Scissors,
+  Star
 } from 'lucide-react';
 import './App.css';
 
@@ -25,6 +24,7 @@ function App() {
   const eventRef = useRef<HTMLDivElement>(null);
   const hairRef = useRef<HTMLDivElement>(null);
   const nailsRef = useRef<HTMLDivElement>(null);
+  const makeupRef = useRef<HTMLDivElement>(null);
   const trainingRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -77,6 +77,7 @@ function App() {
         { ref: eventRef, class: '.event-reveal' },
         { ref: hairRef, class: '.hair-reveal' },
         { ref: nailsRef, class: '.nails-reveal' },
+        { ref: makeupRef, class: '.makeup-reveal' },
       ];
 
       sections.forEach(({ ref, class: className }) => {
@@ -172,7 +173,7 @@ function App() {
             onClick={() => scrollToSection(contactRef)}
             className="btn-editorial mt-8 py-4 px-12 text-sm bg-charcoal text-white"
           >
-            Book Now
+            Book a session
           </button>
         </div>
       )}
@@ -186,17 +187,13 @@ function App() {
         
         <div className="hero-content relative z-10 flex flex-col items-center justify-center text-white px-6 mt-16 w-full max-w-5xl mx-auto">
           <div className="relative text-center">
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-champagne mb-6 block drop-shadow-md">
-              The Beauty Atelier
-            </span>
             <h1 className="hero-headline font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-white drop-shadow-lg">
-              Curated elegance.<br/>
-              <span className="italic font-serif text-champagne/90">Perfectly executed.</span>
+              Beauty, Events <span className="italic font-serif text-champagne/90">& Style.</span>
             </h1>
           </div>
           
           <p className="hero-subheadline mt-10 text-center max-w-md text-sm md:text-base font-light tracking-wide leading-relaxed text-white/90 drop-shadow-md">
-            The premier destination for bespoke events, editorial makeup, and tailored styling.
+            ...your go to for all things beauty
           </p>
           
           <div className="hero-cta mt-12">
@@ -204,7 +201,7 @@ function App() {
               onClick={() => scrollToSection(contactRef)}
               className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em]"
             >
-              Discover More
+              Book a session
             </button>
           </div>
         </div>
@@ -214,9 +211,9 @@ function App() {
       <section ref={servicesRef} className="py-24 lg:py-40 bg-ivory relative z-10">
         <div className="px-6 lg:px-16 max-w-7xl mx-auto">
           <div className="service-reveal flex flex-col items-center text-center mb-20">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4">Atelier Services</span>
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4">What We Offer</span>
             <h2 className="font-display text-4xl lg:text-6xl font-light text-charcoal">
-              The Collection
+              Our Services
             </h2>
             <div className="w-[1px] h-16 bg-champagne mt-8 opacity-50"></div>
           </div>
@@ -226,19 +223,19 @@ function App() {
               <img src="/images/event_balloon_arch.jpg" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 lg:p-12 text-white">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-champagne mb-4 block">Signature</span>
-                <h3 className="font-display text-3xl lg:text-4xl font-light mb-4">Event Architecture</h3>
+                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-champagne mb-4 block">Featured</span>
+                <h3 className="font-display text-3xl lg:text-4xl font-light mb-4">Event Decoration</h3>
                 <p className="text-sm font-light tracking-wide text-white/80 max-w-md leading-relaxed">
-                  Bespoke styling that sets the mood. Intricate balloon structures, backdrops, and tablescapes designed for the camera.
+                  Styling that sets the mood: balloons, backdrops, tablescapes.
                 </p>
               </div>
             </div>
             
             <div className="lg:col-span-5 flex flex-col gap-6 justify-center">
               {[
-                { title: "Makeup & Gele", desc: "Bridal glam, editorial looks, and traditional headwrap styling.", icon: Palette },
+                { title: "Makeup & Gele", desc: "Bridal glam, editorial looks, traditional headwrap styling.", icon: Palette },
                 { title: "Nail Art & Care", desc: "Gel, extensions, intricate art, manicures & pedicures.", icon: Gem },
-                { title: "Hair & Piercing", desc: "Installations, braiding, custom wigs, safe piercing.", icon: Scissors }
+                { title: "Hair, Wigs & Piercing", desc: "Installations, braiding, custom wigs, safe piercing.", icon: Scissors }
               ].map((service, idx) => (
                 <div key={idx} className="service-reveal bg-white p-8 border border-charcoal/5 hover:border-champagne/40 transition-colors duration-500 flex gap-6 items-start group">
                   <service.icon className="w-6 h-6 text-champagne/80 mt-1 stroke-[1.5] group-hover:scale-110 transition-transform duration-500" />
@@ -250,23 +247,35 @@ function App() {
               ))}
             </div>
           </div>
+
+          <div className="service-reveal mt-16 text-center">
+            <p className="font-mono text-xs text-soft-gray">
+              Training available — <button onClick={() => scrollToSection(trainingRef)} className="text-charcoal border-b border-charcoal hover:text-champagne hover:border-champagne transition-colors">ask about our next cohort</button>.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Section 3: Event Styling Image Break */}
+      {/* Section 3: Event Styling */}
       <section ref={eventRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="event-reveal absolute inset-0">
           <img src="/images/event_balloon_arch.jpg" alt="Event styling" className="w-full h-full object-cover scale-105" loading="lazy" />
-          <div className="absolute inset-0 bg-charcoal/40" />
+          <div className="absolute inset-0 bg-charcoal/60" />
         </div>
         
         <div className="relative z-10 px-6 text-center max-w-3xl mx-auto">
           <h2 className="event-reveal font-display text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
-            Styling that feels like a <i className="font-serif text-champagne">celebration.</i>
+            Event styling that feels like a <i className="font-serif text-champagne">celebration.</i>
           </h2>
-          <p className="event-reveal mt-8 text-sm uppercase tracking-[0.2em] text-white/70">
-            Intimate Dinners • Milestone Parties • Bridal
+          <p className="event-reveal mt-8 text-sm md:text-base font-light tracking-wide text-white/80 leading-relaxed">
+            From intimate dinners to milestone parties. We design backdrops, balloon features, and tablescapes that photograph beautifully.
           </p>
+          <button 
+            onClick={() => scrollToSection(contactRef)}
+            className="event-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10"
+          >
+            Plan your event
+          </button>
         </div>
       </section>
 
@@ -284,11 +293,14 @@ function App() {
             <div className="hair-reveal w-full lg:w-1/2 lg:pl-8">
               <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-soft-gray mb-6 block">01 / Crown</span>
               <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal leading-tight">
-                Hair that commands <br/> the room.
+                Hair that changes <br/> the room.
               </h2>
               <p className="mt-8 text-soft-gray font-light leading-relaxed max-w-md">
-                Precision installations, knotless braids, custom wig units, and flawless maintenance. Styled to complement your bone structure and your aesthetic.
+                Installations, braids, custom wigs, and maintenance, styled to fit your face and your mood.
               </p>
+              <button onClick={() => scrollToSection(contactRef)} className="mt-10 text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
+                Book hair service
+              </button>
             </div>
           </div>
 
@@ -305,30 +317,73 @@ function App() {
                 Nails as detailed <br/> as your plans.
               </h2>
               <p className="mt-8 text-soft-gray font-light leading-relaxed max-w-md">
-                From minimalist gel overlays to architectural extensions and intricate hand-painted art. Complete with luxury care for hands and feet.
+                Gel, extensions, nail art, and full care, as well as manicures and pedicures that last.
               </p>
+              <button onClick={() => scrollToSection(contactRef)} className="mt-10 text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
+                Book nail appointment
+              </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Section 6: Makeup (Restored as a beautiful full width image block) */}
+      <section ref={makeupRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
+        <div className="makeup-reveal absolute inset-0">
+          <img src="/images/makeup_portrait.jpg" alt="Makeup styling" className="w-full h-full object-cover scale-105" loading="lazy" />
+          <div className="absolute inset-0 bg-charcoal/60" />
+        </div>
+        
+        <div className="relative z-10 px-6 text-center max-w-3xl mx-auto">
+          <h2 className="makeup-reveal font-display text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+            Makeup and gele, <br/> <i className="font-serif text-champagne">done your way.</i>
+          </h2>
+          <p className="makeup-reveal mt-8 text-sm md:text-base font-light tracking-wide text-white/80 leading-relaxed">
+            Bridal glam, editorial looks, and traditional headwrap styling, calm, precise, and on time.
+          </p>
+          <button 
+            onClick={() => scrollToSection(contactRef)}
+            className="makeup-reveal btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] mt-10"
+          >
+            Book makeup session
+          </button>
         </div>
       </section>
 
       {/* Section 7: Training Academy */}
       <section ref={trainingRef} className="py-24 lg:py-32 bg-[#F5F3EF]">
         <div className="px-6 lg:px-16 max-w-7xl mx-auto">
-          <div className="training-reveal text-center mb-20">
-            <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal mb-4">The Academy</h2>
-            <p className="text-sm uppercase tracking-[0.2em] text-soft-gray">Master the craft</p>
+          <div className="training-reveal text-center mb-16">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4 block">Academy</span>
+            <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal mb-6">Learn the craft.</h2>
+            <p className="text-soft-gray font-light max-w-xl mx-auto leading-relaxed">
+              Small-group training with real-world practice, leave confident and portfolio-ready.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-6 mt-8 font-light text-sm text-charcoal">
+              <span className="flex items-center gap-2"><Star className="w-3 h-3 text-champagne" /> Hands-on kits included</span>
+              <span className="flex items-center gap-2"><Star className="w-3 h-3 text-champagne" /> Live models / practice sessions</span>
+              <span className="flex items-center gap-2"><Star className="w-3 h-3 text-champagne" /> Certificate of completion</span>
+            </div>
+            
+            <button 
+              onClick={() => scrollToSection(contactRef)}
+              className="mt-10 btn-editorial py-4 px-10 text-xs uppercase tracking-[0.2em]"
+            >
+              Join the waitlist
+            </button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
-              { title: "Makeup & Gele Mastery", time: "12-Week Intensive" },
-              { title: "Nail Technology", time: "6-Week Certification" },
-              { title: "Event Styling Basics", time: "2-Week Workshop" }
+              { title: "Makeup and Gele Mastery", time: "12-week intensive", desc: "Master bridal glam, editorial looks, and traditional headwrap styling." },
+              { title: "Nail Technology", time: "6-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians." },
+              { title: "Event Styling Basics", time: "2-week workshop", desc: "Learn balloon design, tablescapes, and backdrop creation." }
             ].map((course, idx) => (
               <div key={idx} className="training-reveal bg-white p-10 lg:p-14 hover:bg-ivory transition-colors duration-500 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne">{course.time}</span>
-                <h4 className="font-display text-2xl font-normal text-charcoal mt-6 mb-8">{course.title}</h4>
+                <h4 className="font-display text-2xl font-normal text-charcoal mt-6 mb-6">{course.title}</h4>
+                <p className="text-sm text-soft-gray font-light mb-8 leading-relaxed">{course.desc}</p>
                 <div className="w-8 h-[1px] bg-charcoal/20"></div>
                 <button className="mt-8 text-xs font-light text-soft-gray flex items-center gap-2 group-hover:text-charcoal transition-colors">
                   View Syllabus <ArrowRight className="w-3 h-3" />
@@ -339,13 +394,16 @@ function App() {
         </div>
       </section>
 
-      {/* Section 8: Portfolio Minimalist Grid with Working Filters */}
+      {/* Section 8: Portfolio Minimalist Grid */}
       <section ref={portfolioRef} className="py-24 lg:py-40 bg-ivory min-h-screen">
         <div className="px-6 lg:px-16 max-w-[1400px] mx-auto">
           <div className="portfolio-reveal flex flex-col md:flex-row md:items-end md:justify-between mb-16">
-            <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              Portfolio
-            </h2>
+            <div>
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4 block">Gallery</span>
+              <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal">
+                Recent work
+              </h2>
+            </div>
             <div className="flex flex-wrap gap-6 mt-6 md:mt-0 font-mono text-[10px] uppercase tracking-[0.2em]">
               {['All', 'Events', 'Hair', 'Nails', 'Makeup'].map(filter => (
                 <button 
@@ -374,6 +432,12 @@ function App() {
               ))
             )}
           </div>
+          
+          <div className="portfolio-reveal mt-20 text-center">
+            <button className="text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
+              Request full portfolio
+            </button>
+          </div>
         </div>
       </section>
 
@@ -383,11 +447,12 @@ function App() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
             
             <div className="contact-reveal w-full lg:w-5/12">
+              <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4 block">Get in Touch</span>
               <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal leading-tight">
                 Let's create <br/><i className="font-serif text-champagne">something beautiful.</i>
               </h2>
               <p className="mt-8 text-soft-gray font-light leading-relaxed">
-                Inquire about availability for your event date or book a private session at our atelier.
+                Tell us what you need. We'll confirm your date and send a prep guide.
               </p>
               
               <div className="mt-16 space-y-8 font-light text-sm tracking-wide">
@@ -400,14 +465,15 @@ function App() {
                   <p className="text-charcoal">+234 816 698 3061</p>
                 </div>
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-2">Atelier</p>
-                  <p className="text-charcoal max-w-[200px] leading-relaxed">101 Ikot Udoro, off Ikot Ekpene Road, Akwa Ibom</p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-2">Location</p>
+                  <p className="text-charcoal max-w-[200px] leading-relaxed">101 Ikot Udoro, off Ikot Ekpene Road, Akwa Ibom, Nigeria</p>
                 </div>
               </div>
             </div>
             
             <div className="contact-reveal w-full lg:w-7/12">
               <div className="bg-ivory p-8 lg:p-12 border border-charcoal/10">
+                <h3 className="font-display text-2xl font-light text-charcoal mb-8">Request a booking or training slot</h3>
                 <form 
                   action="https://api.web3forms.com/submit" 
                   method="POST" 
@@ -418,33 +484,35 @@ function App() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="input-group">
-                      <input type="text" name="First Name" required placeholder="First Name" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
+                      <input type="text" name="Name" required placeholder="Your name" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
                     </div>
                     <div className="input-group">
-                      <input type="text" name="Last Name" required placeholder="Last Name" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
+                      <input type="tel" name="Phone" required placeholder="Your phone number" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
                     </div>
                   </div>
                   
                   <div className="input-group">
-                    <input type="email" name="Email" required placeholder="Email Address" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
+                    <input type="email" name="Email" required placeholder="your@email.com" className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors" />
                   </div>
                   
                   <div className="input-group">
                     <select name="Service Requested" required className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors text-charcoal appearance-none rounded-none">
-                      <option value="" disabled selected className="text-soft-gray/50">Subject of Inquiry</option>
-                      <option value="Event Styling">Event Styling</option>
-                      <option value="Bridal Makeup">Bridal Makeup</option>
-                      <option value="Hair/Nails">Hair / Nails Appointment</option>
-                      <option value="Academy">Academy Enrollment</option>
+                      <option value="" disabled selected className="text-soft-gray/50">Select a service</option>
+                      <option value="Event Decoration">Event Decoration</option>
+                      <option value="Makeup & Gele">Makeup & Gele</option>
+                      <option value="Nail Art & Care">Nail Art & Care</option>
+                      <option value="Hair & Wigs">Hair & Wigs</option>
+                      <option value="Piercing">Piercing</option>
+                      <option value="Training">Training</option>
                     </select>
                   </div>
                   
                   <div className="input-group">
-                    <textarea name="Message" rows={4} required placeholder="Tell us about your vision..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
+                    <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
                   <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4">
-                    Submit Inquiry
+                    Request booking
                   </button>
                 </form>
               </div>
@@ -455,10 +523,11 @@ function App() {
         {/* Footer */}
         <div className="mt-32 border-t border-charcoal/10 pt-12 px-6 lg:px-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal">
-            Tricia Val's
+            Tricia Val's Dynasty
           </div>
+          <p className="text-xs text-soft-gray font-light">Beauty, events & style — curated for you.</p>
           <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-soft-gray">
-            © 2026. All rights reserved.
+            © 2026 All rights reserved.
           </p>
         </div>
       </section>
