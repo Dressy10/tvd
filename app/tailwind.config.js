@@ -10,11 +10,12 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        // New color palette: Champagne Gold, Teal Green, White
+        
+        // Refined Editorial Color Palette
         champagne: {
-          DEFAULT: "#D4AF37",
-          light: "#E5C76B",
-          dark: "#B8960C",
+          DEFAULT: "#C5A880", // Muted, editorial gold
+          light: "#E3D3BE",
+          dark: "#A3865D",
           50: "#FCF9E8",
           100: "#F8F0C8",
         },
@@ -26,8 +27,9 @@ module.exports = {
           100: "#B3E0E0",
         },
         ivory: "#FAFAF8",
-        charcoal: "#1A1A1A",
-        "soft-gray": "#6B7280",
+        charcoal: "#222222", // Softer black for a high-end feel
+        "soft-gray": "#737373",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -58,9 +60,11 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['Cormorant Garamond', 'serif'],
-        body: ['Inter', 'sans-serif'],
-        mono: ['IBM Plex Mono', 'monospace'],
+        // Mapped exactly to the classes used in App.tsx
+        sans: ['Inter', 'Helvetica Neue', 'sans-serif'], 
+        serif: ['Playfair Display', 'Times New Roman', 'serif'], 
+        display: ['Cormorant Garamond', 'Didot', 'serif'], 
+        mono: ['Space Mono', 'Courier', 'monospace'],
       },
       borderRadius: {
         '4xl': '28px',
@@ -72,9 +76,9 @@ module.exports = {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
-        card: "0 12px 32px rgba(0,0,0,0.08)",
-        'card-hover': "0 20px 48px rgba(0,0,0,0.12)",
-        button: "0 8px 20px rgba(212, 175, 55, 0.25)",
+        card: "0 12px 32px rgba(0,0,0,0.04)", // Softened the shadow opacity for luxury feel
+        'card-hover': "0 20px 48px rgba(0,0,0,0.08)",
+        button: "0 8px 20px rgba(197, 168, 128, 0.25)", // Matched to new champagne hex
         teal: "0 8px 20px rgba(13, 115, 119, 0.25)",
       },
       keyframes: {
