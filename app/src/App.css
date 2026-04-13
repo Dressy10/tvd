@@ -21,6 +21,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* CURVY EDGES FIX: Force images and containers to follow the curves */
+.rounded-3xl, .rounded-2xl {
+  overflow: hidden !important;
+  isolation: isolate; /* Ensures child elements don't bleed past rounded corners */
+}
+
+img {
+  border-radius: inherit; /* Matches the parent container's curve automatically */
+}
+
+/* Updated Buttons - Ensuring they stay curvy as well */
 .btn-editorial {
   background-color: transparent;
   border: 1px solid #222222; 
@@ -53,6 +64,19 @@ body {
   transform: scaleY(1);
 }
 
+/* Training Card Balancing (Now that "View Syllabus" is gone) */
+.training-reveal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: all 0.4s ease;
+}
+
+.training-reveal p {
+  margin-bottom: 2rem;
+}
+
+/* Input Styles */
 .input-group select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -63,6 +87,7 @@ body {
   background-size: 8px auto;
 }
 
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -76,6 +101,7 @@ body {
   background: #C5A880; 
 }
 
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
