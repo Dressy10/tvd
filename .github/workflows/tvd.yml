@@ -1,0 +1,47 @@
+name: CI/CD TVD App Deployment
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Note: Ensure this environment matches what you configure in GitHub Settings -> Environments
+    environment: tvd-secret
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to VM via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          port: 22
+          script: |
+            # 1. Navigate to the root of the Git repository to pull changes
+            cd ~/tvd
+
+            echo "Pulling latest code..."
+            git pull origin main
+
+            # 2. Navigate into the app directory where the Dockerfile is located
+            cd app
+
+            echo "Stopping and removing existing container..."
+            docker rm -f tvd-container || true
+
+            echo "Rebuilding Docker image..."
+            docker build -t tvd-app .
+
+            echo "Starting new container..."
+            # Mapping host port 8080 to container port 80, as established earlier
+            docker run -d -p 8080:80 --name tvd-container tvd-app
+
+            echo "Cleaning unused images..."
+            docker image prune -f
+
+            echo "Deployment complete!"
