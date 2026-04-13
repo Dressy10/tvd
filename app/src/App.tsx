@@ -259,20 +259,9 @@ function App() {
             >
               Book a session
             </button>
-            {/* <button 
-              onClick={() => scrollToSection(servicesRef)}
-              className="text-white underline underline-offset-4 hover:text-champagne transition-colors"
-            >
-              View services
-            </button> */}
           </div>
         </div>
-        
-        {/* Scroll indicator */}
-        {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
-          <span className="font-mono text-xs uppercase tracking-wider">Scroll</span>
-          <ArrowDown className="w-4 h-4 animate-bounce" />
-        </div> */}
+    
       </section>
 
       {/* Section 2: Services Overview */}
