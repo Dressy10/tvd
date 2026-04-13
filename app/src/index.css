@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 46 65% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 180 80% 26%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 40 10% 94%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 180 80% 26%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 46 65% 52%;
+    --radius: 1.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-charcoal antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+  .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  
+  .text-champagne {
+    color: #D4AF37;
+  }
+  
+  .text-teal {
+    color: #0D7377;
+  }
+  
+  .bg-champagne {
+    background-color: #D4AF37;
+  }
+  
+  .bg-teal {
+    background-color: #0D7377;
+  }
+  
+  .bg-ivory {
+    background-color: #FAFAF8;
+  }
+  
+  .border-champagne {
+    border-color: #D4AF37;
+  }
+  
+  .border-teal {
+    border-color: #0D7377;
+  }
+  
+  .btn-primary {
+    @apply bg-champagne text-white px-8 py-3.5 rounded-full font-medium transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-champagne-dark transform -translate-y-0.5;
+    box-shadow: 0 10px 24px rgba(212, 175, 55, 0.35);
+  }
+  
+  .btn-outline {
+    @apply border-2 border-champagne text-champagne px-8 py-3.5 rounded-full font-medium transition-all duration-300 bg-transparent;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-champagne text-white;
+  }
+  
+  .btn-teal {
+    @apply bg-teal text-white px-8 py-3.5 rounded-full font-medium transition-all duration-300;
+  }
+  
+  .btn-teal:hover {
+    @apply bg-teal-dark transform -translate-y-0.5;
+    box-shadow: 0 10px 24px rgba(13, 115, 119, 0.35);
+  }
+  
+  .card-radius {
+    border-radius: 24px;
+  }
+  
+  .section-base {
+    @apply w-full min-h-screen relative overflow-hidden;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md rounded-3xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Smooth scrolling for the whole page */
+html.lenis {
+  height: auto;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8960C;
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.85);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2.5s ease-in-out infinite;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
