@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="relative bg-ivory font-sans selection:bg-champagne/30 selection:text-charcoal noise-overlay">
       
-      {/* Upgraded Navigation */}
+      {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 lg:px-12 transition-all duration-500 ${
         isScrolled 
           ? 'py-4 bg-ivory shadow-sm border-b border-charcoal/5' 
@@ -179,7 +179,7 @@ function App() {
       {/* Section 1: Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="hero-bg absolute inset-0">
-          <img src="/images/hero_arch.jpg" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105" loading="eager" />
+          <img src="/images/hero_arch.jpg" alt="Hero background" className="w-full h-full object-cover object-center scale-105" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/60 mix-blend-multiply" />
         </div>
         
@@ -285,7 +285,6 @@ function App() {
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
                 <img src="/images/hair_braids.jpg" alt="Hair styling" className="w-full h-full object-cover grayscale-[20%]" loading="lazy" />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-champagne/10 rounded-full blur-2xl z-[-1]"></div>
             </div>
             
             <div className="hair-reveal w-full lg:w-1/2 lg:pl-8">
@@ -378,18 +377,19 @@ function App() {
               { title: "Nail Technology", time: "6-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians." },
               { title: "Event Styling Basics", time: "2-week workshop", desc: "Learn balloon design, tablescapes, and backdrop creation." }
             ].map((course, idx) => (
-              <div key={idx} className="training-reveal bg-white p-10 lg:p-14 hover:bg-ivory transition-colors duration-500 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group rounded-3xl">
+              <div key={idx} className="training-reveal bg-white p-10 lg:p-14 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group rounded-3xl">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne">{course.time}</span>
                 <h4 className="font-display text-2xl font-normal text-charcoal mt-6 mb-6">{course.title}</h4>
                 <p className="text-sm text-soft-gray font-light mb-8 leading-relaxed">{course.desc}</p>
                 <div className="w-8 h-[1px] bg-charcoal/20"></div>
+                {/* View Syllabus Button Removed */}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 8: Portfolio Minimalist Grid */}
+      {/* Section 8: Portfolio */}
       <section ref={portfolioRef} className="py-24 lg:py-40 bg-ivory min-h-screen">
         <div className="px-6 lg:px-16 max-w-[1400px] mx-auto">
           <div className="portfolio-reveal flex flex-col md:flex-row md:items-end md:justify-between mb-16">
@@ -417,15 +417,11 @@ function App() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-500">
-            {filteredPortfolio.length === 0 ? (
-              <p className="text-soft-gray font-light mt-10">No portfolio items found for this category yet.</p>
-            ) : (
-              filteredPortfolio.map((item) => (
+            {filteredPortfolio.map((item) => (
                 <div key={item.id} className={`portfolio-reveal ${item.aspect} overflow-hidden group bg-gray-100 ${item.offset} animate-in fade-in zoom-in duration-500 rounded-3xl`}>
                   <img src={item.src} alt={item.category} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
                 </div>
-              ))
-            )}
+            ))}
           </div>
           
           <div className="portfolio-reveal mt-20 text-center">
@@ -505,7 +501,7 @@ function App() {
                     <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
-                  <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full">
+                  <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full bg-charcoal text-white">
                     Request booking
                   </button>
                 </form>
