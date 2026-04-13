@@ -35,7 +35,7 @@ jobs:
             docker rm -f tvd-container || true
 
             echo "Rebuilding Docker image..."
-            docker build -t tvd-app .
+            docker build --no-cache -t tvd-app .
 
             echo "Starting new container..."
             # Mapping host port 8080 to container port 80, as established earlier
