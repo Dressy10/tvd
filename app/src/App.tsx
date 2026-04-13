@@ -234,7 +234,7 @@ function App() {
             <Sparkles className="absolute -top-3 -right-10 w-4 h-4 text-champagne animate-sparkle" style={{ animationDelay: '0.5s' }} />
             
             <h1 className="hero-headline font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight tracking-tight text-balance">
-              Beauty, events & style.
+              Beauty, Events & Style.
             </h1>
             
             <svg className="mx-auto mt-4 w-48 md:w-64 lg:w-80 h-3" viewBox="0 0 300 10">
@@ -249,7 +249,7 @@ function App() {
           </div>
           
           <p className="hero-subheadline mt-8 text-center max-w-xl text-base md:text-lg leading-relaxed text-white/90">
-            A studio for modern celebrations—makeup, hair, nails, décor, and hands-on training.
+            ...your go to for all things beauty
           </p>
           
           <div className="hero-cta mt-8 flex flex-col sm:flex-row items-center gap-4">
@@ -259,20 +259,20 @@ function App() {
             >
               Book a session
             </button>
-            <button 
+            {/* <button 
               onClick={() => scrollToSection(servicesRef)}
               className="text-white underline underline-offset-4 hover:text-champagne transition-colors"
             >
               View services
-            </button>
+            </button> */}
           </div>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
+        {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70">
           <span className="font-mono text-xs uppercase tracking-wider">Scroll</span>
           <ArrowDown className="w-4 h-4 animate-bounce" />
-        </div>
+        </div> */}
       </section>
 
       {/* Section 2: Services Overview */}
@@ -382,7 +382,7 @@ function App() {
             </svg>
             
             <p className="event-reveal mt-6 text-white/80 leading-relaxed">
-              From intimate dinners to milestone parties—we design backdrops, balloon features, and tablescapes that photograph beautifully.
+              From intimate dinners to milestone parties. We design backdrops, balloon features, and tablescapes that photograph beautifully.
             </p>
             
             <button 
@@ -426,7 +426,7 @@ function App() {
               </svg>
               
               <p className="mt-6 text-soft-gray leading-relaxed">
-                Installations, braids, custom wigs, and maintenance—styled to fit your face and your mood.
+                Installations, braids, custom wigs, and maintenance, styled to fit your face and your mood.
               </p>
               
               <button 
@@ -478,7 +478,7 @@ function App() {
               </svg>
               
               <p className="mt-6 text-soft-gray leading-relaxed">
-                Gel, extensions, nail art, and full care—manicures and pedicures that last.
+                Gel, extensions, nail art, and full care, as well asmanicures and pedicures that last.
               </p>
               
               <button 
@@ -511,7 +511,7 @@ function App() {
             </div>
             
             <h2 className="makeup-reveal font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight">
-              Makeup & gele, done your way.
+              Makeup and gele, done your way.
             </h2>
             
             <svg className="makeup-reveal mt-4 w-44 md:w-56 h-3" viewBox="0 0 280 10">
@@ -525,7 +525,7 @@ function App() {
             </svg>
             
             <p className="makeup-reveal mt-6 text-white/80 leading-relaxed">
-              Bridal glam, editorial looks, and traditional headwrap styling—calm, precise, and on time.
+              Bridal glam, editorial looks, and traditional headwrap styling, calm, precise, and on time.
             </p>
             
             <button 
@@ -561,7 +561,7 @@ function App() {
                 </svg>
                 
                 <p className="mt-6 text-soft-gray leading-relaxed">
-                  Small-group training with real-world practice—leave confident and portfolio-ready.
+                  Small-group training with real-world practice, leave confident and portfolio-ready.
                 </p>
                 
                 <ul className="mt-6 space-y-3">
@@ -602,8 +602,8 @@ function App() {
               <div className="training-reveal rounded-3xl bg-white shadow-card p-5 lg:p-6 training-card">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-[0.18em] text-teal">4-week intensive</span>
-                    <h4 className="font-display text-xl lg:text-2xl font-semibold text-charcoal mt-2">Makeup & Gele Mastery</h4>
+                    <span className="font-mono text-xs uppercase tracking-[0.18em] text-teal">12-week intensive</span>
+                    <h4 className="font-display text-xl lg:text-2xl font-semibold text-charcoal mt-2">Makeup and Gele Mastery</h4>
                     <p className="text-soft-gray mt-2 text-sm">Master bridal glam, editorial looks, and traditional headwrap styling.</p>
                   </div>
                   <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
@@ -802,7 +802,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.18em] text-soft-gray">Email</p>
-                    <p className="text-charcoal">hello@triciavalsdynasty.com</p>
+                    <p className="text-charcoal">triciaval07@gmail.com</p>
                   </div>
                 </div>
                 
@@ -812,7 +812,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.18em] text-soft-gray">Phone</p>
-                    <p className="text-charcoal">+234 800 000 0000</p>
+                    <p className="text-charcoal">+234 816 698 3061</p>
                   </div>
                 </div>
                 
@@ -822,7 +822,7 @@ function App() {
                   </div>
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.18em] text-soft-gray">Location</p>
-                    <p className="text-charcoal">101 Ikot Udoro, off Ikot Ekpene Road</p>
+                    <p className="text-charcoal">101 Ikot Udoro, off Ikot Ekpene Road, Akwa Ibom, Nigeria</p>
                   </div>
                 </div>
               </div>
@@ -843,7 +843,7 @@ function App() {
                 <Sparkles className="absolute -top-3 -right-3 w-5 h-5 lg:w-6 lg:h-6 text-champagne animate-sparkle" />
                 <Heart className="absolute -bottom-3 -left-3 w-5 h-5 lg:w-6 lg:h-6 text-champagne animate-float" />
                 
-                <h3 className="font-display text-xl lg:text-2xl font-semibold text-charcoal mb-6">Request a booking</h3>
+                <h3 className="font-display text-xl lg:text-2xl font-semibold text-charcoal mb-6">Request a booking or training slot</h3>
                 
                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
