@@ -130,7 +130,7 @@ function App() {
           <div className="flex items-baseline text-teal drop-shadow-sm group-hover:text-champagne transition-colors duration-500 z-10">
             <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
-          </div
+          </div>
           </div>
         
         <div className="hidden lg:flex items-center gap-10">
