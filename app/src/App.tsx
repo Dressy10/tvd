@@ -40,11 +40,13 @@ function App() {
     : portfolioData.filter(item => item.category === activeFilter);
 
   useEffect(() => {
+    // Scroll listener for the header
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
+    // GSAP Animations
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
@@ -114,17 +116,30 @@ function App() {
   return (
     <div className="relative bg-ivory font-sans selection:bg-champagne/30 selection:text-charcoal noise-overlay">
       
-      {/* Navigation */}
+      {/* Upgraded Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 lg:px-12 transition-all duration-500 ${
         isScrolled 
           ? 'py-4 bg-ivory shadow-sm border-b border-charcoal/5' 
           : 'py-6 bg-transparent'
       }`}>
+        
+        {/* PURE CODE LOGO - Matching Flyer Aesthetic */}
         <div 
-          className="font-mono text-xs uppercase tracking-[0.25em] text-charcoal cursor-pointer hover:text-champagne transition-colors"
+          className="cursor-pointer flex items-center gap-3 transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
-          Tricia Val's
+          <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border-[2px] border-teal flex items-center justify-center bg-ivory group-hover:bg-teal transition-colors duration-500 shadow-sm">
+            <span className="font-display font-bold text-teal text-lg md:text-xl leading-none mt-1 group-hover:text-white transition-colors duration-500">tvd</span>
+          </div>
+          
+          <div className="flex flex-col justify-center">
+            <span className="font-sans font-extrabold text-[15px] md:text-[17px] tracking-[0.05em] text-teal leading-none">
+              TRICIA-VAL'S
+            </span>
+            <span className="font-sans font-bold text-[13px] md:text-[15px] tracking-[0.12em] text-champagne leading-tight mt-0.5">
+              DYNASTY
+            </span>
+          </div>
         </div>
         
         <div className="hidden lg:flex items-center gap-10">
@@ -381,7 +396,6 @@ function App() {
                 <h4 className="font-display text-2xl font-normal text-charcoal mt-6 mb-6">{course.title}</h4>
                 <p className="text-sm text-soft-gray font-light mb-8 leading-relaxed">{course.desc}</p>
                 <div className="w-8 h-[1px] bg-charcoal/20"></div>
-                {/* View Syllabus Button Removed */}
               </div>
             ))}
           </div>
@@ -426,7 +440,8 @@ function App() {
           <div className="portfolio-reveal mt-20 text-center">
             <button 
               onClick={() => scrollToSection(contactRef)}
-              className="text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors">
+              className="text-xs uppercase tracking-[0.2em] text-charcoal border-b border-charcoal pb-1 hover:text-champagne hover:border-champagne transition-colors"
+            >
               Request full portfolio
             </button>
           </div>
@@ -503,7 +518,7 @@ function App() {
                   </div>
                   
                   <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full bg-charcoal text-white">
-                    SUBMIT REQUEST
+                    Request booking
                   </button>
                 </form>
               </div>
