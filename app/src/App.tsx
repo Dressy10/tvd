@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
+import { 
   Menu,
   X,
   Palette,
@@ -114,46 +114,70 @@ function App() {
   return (
     <div className="relative bg-ivory font-sans selection:bg-champagne/30 selection:text-charcoal noise-overlay">
       
-      {/* Upgraded Navigation */}
+      {/* Upgraded Dynamic Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 lg:px-12 transition-all duration-500 ${
         isScrolled 
           ? 'py-4 bg-ivory shadow-sm border-b border-charcoal/5' 
           : 'py-6 bg-transparent'
       }`}>
         
-        {/* PURE CODE LOGO - Matching the Vertical Flyer Logo */}
+        {/* PURE CODE LOGO - Dynamic Colors */}
         <div 
           className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
           {/* Top: The stylized 'tvD' */}
-          <div className="flex items-baseline text-teal drop-shadow-sm group-hover:text-champagne transition-colors duration-500 z-10">
+          <div className={`flex items-baseline drop-shadow-md transition-colors duration-500 z-10 ${
+            isScrolled ? 'text-teal group-hover:text-champagne' : 'text-white group-hover:text-champagne'
+          }`}>
             <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
+          
+          {/* Bottom: The bold lowercase text */}
+          <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
+            isScrolled ? 'text-teal group-hover:text-charcoal' : 'text-white/95 group-hover:text-champagne'
+          }`}>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              tricia-val's
+            </span>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              dynasty
+            </span>
           </div>
+        </div>
         
         <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => scrollToSection(link.ref)}
-              className="text-xs uppercase tracking-[0.15em] text-charcoal/70 hover:text-charcoal transition-colors relative group font-medium"
+              className={`text-xs uppercase tracking-[0.15em] transition-colors relative group font-medium ${
+                isScrolled ? 'text-charcoal/70 hover:text-charcoal' : 'text-white/80 hover:text-white'
+              }`}
             >
               {link.label}
-              <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-champagne transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute -bottom-2 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full ${
+                isScrolled ? 'bg-champagne' : 'bg-white'
+              }`}></span>
             </button>
           ))}
           <button 
             onClick={() => scrollToSection(contactRef)}
-            className="btn-editorial text-xs uppercase tracking-widest py-3 px-8 bg-charcoal text-white hover:bg-champagne hover:border-champagne rounded-full"
+            className={`text-xs uppercase tracking-widest py-3 px-8 transition-colors duration-500 rounded-full ${
+              isScrolled 
+                ? 'bg-charcoal text-white hover:bg-champagne hover:border-champagne' 
+                : 'bg-white text-charcoal hover:bg-champagne hover:text-white'
+            }`}
           >
             Book
           </button>
         </div>
         
         <button 
-          className="lg:hidden p-2 text-charcoal"
+          className={`lg:hidden p-2 transition-colors duration-500 ${
+            isScrolled ? 'text-charcoal' : 'text-white'
+          }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X className="w-6 h-6 stroke-[1.5]" /> : <Menu className="w-6 h-6 stroke-[1.5]" />}
