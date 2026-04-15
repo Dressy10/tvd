@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
+import { 
+  ArrowRight,
   Menu,
   X,
   Palette,
@@ -40,13 +41,11 @@ function App() {
     : portfolioData.filter(item => item.category === activeFilter);
 
   useEffect(() => {
-    // Scroll listener for the header
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
 
-    // GSAP Animations
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
@@ -123,21 +122,24 @@ function App() {
           : 'py-6 bg-transparent'
       }`}>
         
-        {/* PURE CODE LOGO - Matching Flyer Aesthetic */}
+        {/* PURE CODE LOGO - Matching the Vertical Flyer Logo */}
         <div 
-          className="cursor-pointer flex items-center gap-3 transition-transform duration-500 hover:scale-105 group"
+          className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
-          <div className="w-9 h-9 md:w-10 md:h-10 rounded-full border-[2px] border-teal flex items-center justify-center bg-ivory group-hover:bg-teal transition-colors duration-500 shadow-sm">
-            <span className="font-display font-bold text-teal text-lg md:text-xl leading-none mt-1 group-hover:text-white transition-colors duration-500">tvd</span>
+          {/* Top: The stylized 'tvD' */}
+          <div className="flex items-baseline text-teal drop-shadow-sm group-hover:text-champagne transition-colors duration-500 z-10">
+            <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
+            <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
           
-          <div className="flex flex-col justify-center">
-            <span className="font-sans font-extrabold text-[15px] md:text-[17px] tracking-[0.05em] text-teal leading-none">
-              TRICIA-VAL'S
+          {/* Bottom: The bold lowercase text */}
+          <div className="flex flex-col items-center text-teal mt-[-6px] group-hover:text-charcoal transition-colors duration-500">
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              tricia-val's
             </span>
-            <span className="font-sans font-bold text-[13px] md:text-[15px] tracking-[0.12em] text-champagne leading-tight mt-0.5">
-              DYNASTY
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              dynasty
             </span>
           </div>
         </div>
@@ -193,7 +195,7 @@ function App() {
       {/* Section 1: Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="hero-bg absolute inset-0">
-          <img src="/images/hero_arch.jpg" alt="Hero background" className="w-full h-full object-cover object-center scale-105" loading="eager" />
+          <img src="/images/hero_arch.jpg" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/60 mix-blend-multiply" />
         </div>
         
