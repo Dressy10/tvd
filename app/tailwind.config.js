@@ -10,20 +10,23 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        // UPDATED: Exact colors pulled from your flyer
         champagne: {
-          DEFAULT: "#C5A880",
-          light: "#E3D3BE",
-          dark: "#A3865D",
-          50: "#FCF9E8",
-          100: "#F8F0C8",
+          DEFAULT: "#F08B4D", // The warm Peach/Orange from "DYNASTY"
+          light: "#F5A878",
+          dark: "#D97335",
+          50: "#FEF4ED",
+          100: "#FDE8DB",
         },
         teal: {
-          DEFAULT: "#0D7377",
-          light: "#14A085",
-          dark: "#095C5F",
-          50: "#E6F4F4",
-          100: "#B3E0E0",
+          DEFAULT: "#287B84", // The deep Teal from "TRICIA-VAL'S"
+          light: "#3A9DA6",
+          dark: "#1D5D63",
+          50: "#E9F5F6",
+          100: "#D2EBEB",
         },
+        
         ivory: "#FAFAF8",
         charcoal: "#222222",
         "soft-gray": "#737373",
@@ -74,8 +77,8 @@ module.exports = {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
         card: "0 12px 32px rgba(0,0,0,0.04)",
         'card-hover': "0 20px 48px rgba(0,0,0,0.08)",
-        button: "0 8px 20px rgba(197, 168, 128, 0.25)",
-        teal: "0 8px 20px rgba(13, 115, 119, 0.25)",
+        button: "0 8px 20px rgba(240, 139, 77, 0.25)", // Updated to match new champagne hex
+        teal: "0 8px 20px rgba(40, 123, 132, 0.25)",   // Updated to match new teal hex
       },
       keyframes: {
         "accordion-down": {
