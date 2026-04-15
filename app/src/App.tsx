@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {
+import { 
+  ArrowRight,
   Menu,
   X,
   Palette,
@@ -200,19 +201,26 @@ function App() {
         
         <div className="hero-content relative z-10 flex flex-col items-center justify-center text-white px-6 mt-16 w-full max-w-5xl mx-auto">
           <div className="relative text-center">
-            <h1 className="hero-headline font-display text-5xl md:text-7xl lg:text-8xl font-light leading-[1.1] tracking-tight text-white drop-shadow-lg">
-              Beauty, Events <span className="italic font-serif text-white drop-shadow-2xl">& Style.</span>
+            {/* The Brand Name 'Eyebrow' for that high-end editorial feel */}
+            <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-white/90 mb-6 block drop-shadow-md font-semibold">
+              Tricia-Val's Dynasty
+            </span>
+            
+            {/* Option C Headline */}
+            <h1 className="hero-headline font-display text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.1] tracking-tight text-white drop-shadow-2xl">
+              Crafting the <span className="italic font-serif text-white">perfect vibe.</span>
             </h1>
           </div>
           
-          <p className="hero-subheadline mt-10 text-center max-w-md text-sm md:text-base font-light tracking-wide leading-relaxed text-white drop-shadow-md italic font-serif">
+          {/* The Brand Motto */}
+          <p className="hero-subheadline mt-8 md:mt-10 text-center max-w-md text-sm md:text-lg font-light tracking-[0.15em] leading-relaxed text-white/95 drop-shadow-xl italic font-serif">
             ...everything beauty and events
           </p>
           
           <div className="hero-cta mt-12">
             <button 
               onClick={() => scrollToSection(contactRef)}
-              className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full"
+              className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full shadow-xl"
             >
               Book a session
             </button>
