@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  ArrowRight,
+import {
   Menu,
   X,
   Palette,
@@ -207,7 +206,7 @@ function App() {
           </div>
           
           <p className="hero-subheadline mt-10 text-center max-w-md text-sm md:text-base font-light tracking-wide leading-relaxed text-white drop-shadow-md italic font-serif">
-            ...your go to for all things beauty
+            ...everything beauty and events
           </p>
           
           <div className="hero-cta mt-12">
@@ -389,9 +388,9 @@ function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
-              { title: "Makeup and Gele Mastery", time: "12-week intensive", desc: "Master bridal glam, editorial looks, and traditional headwrap styling." },
-              { title: "Nail Technology", time: "6-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians." },
-              { title: "Event Styling Basics", time: "2-week workshop", desc: "Learn balloon design, tablescapes, and backdrop creation." }
+              { title: "Makeup and Gele Mastery", time: "16-week intensive", desc: "Master bridal glam, editorial looks, and traditional headwrap styling." },
+              { title: "Nail Technology", time: "24-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians." },
+              { title: "Event Styling Basics", time: "8-week workshop", desc: "Learn balloon design, tablescapes, and backdrop creation." }
             ].map((course, idx) => (
               <div key={idx} className="training-reveal bg-white p-10 lg:p-14 border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group rounded-3xl">
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-champagne">{course.time}</span>
