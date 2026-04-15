@@ -11,20 +11,20 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // UPDATED: Exact colors pulled from your flyer
+        // RESTORED: True Champagne Gold and Teal Green
         champagne: {
-          DEFAULT: "#F08B4D", // The warm Peach/Orange from "DYNASTY"
-          light: "#F5A878",
-          dark: "#D97335",
-          50: "#FEF4ED",
-          100: "#FDE8DB",
+          DEFAULT: "#D4AF37", // True Champagne Gold
+          light: "#E5C76B",
+          dark: "#B8960C",
+          50: "#FCF9E8",
+          100: "#F8F0C8",
         },
         teal: {
-          DEFAULT: "#287B84", // The deep Teal from "TRICIA-VAL'S"
-          light: "#3A9DA6",
-          dark: "#1D5D63",
-          50: "#E9F5F6",
-          100: "#D2EBEB",
+          DEFAULT: "#137A7F", // Rich Teal Green from the flyer logo
+          light: "#219BA3",
+          dark: "#0C5155",
+          50: "#E6F4F4",
+          100: "#B3E0E0",
         },
         
         ivory: "#FAFAF8",
@@ -77,8 +77,8 @@ module.exports = {
         xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
         card: "0 12px 32px rgba(0,0,0,0.04)",
         'card-hover': "0 20px 48px rgba(0,0,0,0.08)",
-        button: "0 8px 20px rgba(240, 139, 77, 0.25)", // Updated to match new champagne hex
-        teal: "0 8px 20px rgba(40, 123, 132, 0.25)",   // Updated to match new teal hex
+        button: "0 8px 20px rgba(212, 175, 55, 0.25)", // Updated to Gold shadow
+        teal: "0 8px 20px rgba(19, 122, 127, 0.25)",   // Updated to Teal Green shadow
       },
       keyframes: {
         "accordion-down": {
