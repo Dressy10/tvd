@@ -133,18 +133,6 @@ function App() {
             <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
-          
-          {/* Bottom: The bold lowercase text */}
-          <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
-            isScrolled ? 'text-teal group-hover:text-charcoal' : 'text-white/95 group-hover:text-champagne'
-          }`}>
-            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
-              tricia-val's
-            </span>
-            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
-              dynasty
-            </span>
-          </div>
         </div>
         
         <div className="hidden lg:flex items-center gap-10">
