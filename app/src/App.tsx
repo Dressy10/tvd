@@ -128,20 +128,22 @@ function App() {
           : 'py-6 bg-transparent'
       }`}>
         
-        {/* PURE CODE LOGO - Dynamic Colors */}
+        {/* PURE CODE LOGO - Dynamic Colors (Now Champagne on Scroll) */}
         <div 
           className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
+          {/* Top: The stylized 'tvD' */}
           <div className={`flex items-baseline drop-shadow-md transition-colors duration-500 z-10 ${
-            isScrolled ? 'text-teal group-hover:text-champagne' : 'text-white group-hover:text-champagne'
+            isScrolled ? 'text-champagne group-hover:text-teal' : 'text-white group-hover:text-champagne'
           }`}>
             <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
           
+          {/* Bottom: The bold lowercase text */}
           <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
-            isScrolled ? 'text-teal group-hover:text-charcoal' : 'text-white/95 group-hover:text-champagne'
+            isScrolled ? 'text-champagne group-hover:text-teal' : 'text-white/95 group-hover:text-champagne'
           }`}>
           </div>
         </div>
