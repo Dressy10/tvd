@@ -28,17 +28,17 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // UPDATED: Now includes ALL images from your public/images folder
+  // CACHE BUSTING: Added ?v=2 to force browsers to download the new images
   const portfolioData = [
-    { id: 1, src: '/images/portfolio_event1.jpg', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 2, src: '/images/portfolio_event2.jpg', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 3, src: '/images/portfolio_event3.jpg', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
-    { id: 4, src: '/images/portfolio_hair1.jpg', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
-    { id: 5, src: '/images/portfolio_hair2.jpg', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 6, src: '/images/portfolio_makeup1.jpg', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 7, src: '/images/portfolio_makeup2.jpg', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 8, src: '/images/portfolio_nails1.jpg', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
-    { id: 9, src: '/images/portfolio_nails2.jpg', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    { id: 1, src: '/images/portfolio_event1.jpg?v=2', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 2, src: '/images/portfolio_event2.jpg?v=2', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 3, src: '/images/portfolio_event3.jpg?v=2', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
+    { id: 4, src: '/images/portfolio_hair1.jpg?v=2', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 5, src: '/images/portfolio_hair2.jpg?v=2', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 6, src: '/images/portfolio_makeup1.jpg?v=2', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 7, src: '/images/portfolio_makeup2.jpg?v=2', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 8, src: '/images/portfolio_nails1.jpg?v=2', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 9, src: '/images/portfolio_nails2.jpg?v=2', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
   ];
 
   const filteredPortfolio = activeFilter === 'All' 
@@ -132,7 +132,6 @@ function App() {
           className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
-          {/* Top: The stylized 'tvD' */}
           <div className={`flex items-baseline drop-shadow-md transition-colors duration-500 z-10 ${
             isScrolled ? 'text-teal group-hover:text-champagne' : 'text-white group-hover:text-champagne'
           }`}>
@@ -140,6 +139,13 @@ function App() {
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
           
+          <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
+            isScrolled ? 'text-teal group-hover:text-charcoal' : 'text-white/95 group-hover:text-champagne'
+          }`}>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              tricia-val's
+            </span>
+          </div>
         </div>
         
         <div className="hidden lg:flex items-center gap-10">
@@ -203,8 +209,8 @@ function App() {
       {/* Section 1: Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="hero-bg absolute inset-0">
-          {/* ADDED: contrast-105 saturate-105 for a faux-HD look */}
-          <img src="/images/hero_arch.jpg" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105 contrast-105 saturate-105" loading="eager" />
+          {/* CACHE BUSTING ADDED HERE */}
+          <img src="/images/hero_arch.jpg?v=2" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105 contrast-105 saturate-105" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/60 mix-blend-multiply" />
         </div>
         
@@ -246,7 +252,8 @@ function App() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="service-reveal lg:col-span-7 rounded-3xl overflow-hidden relative group">
-              <img src="/images/event_balloon_arch.jpg" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
+              {/* CACHE BUSTING ADDED HERE */}
+              <img src="/images/event_balloon_arch.jpg?v=2" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 lg:p-12 text-white">
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-champagne mb-4 block">Featured</span>
@@ -279,7 +286,8 @@ function App() {
       {/* Section 3: Event Styling */}
       <section ref={eventRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="event-reveal absolute inset-0">
-          <img src="/images/event_balloon_arch.jpg" alt="Event styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
+          {/* CACHE BUSTING ADDED HERE */}
+          <img src="/images/event_balloon_arch.jpg?v=2" alt="Event styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
         
@@ -305,7 +313,8 @@ function App() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
             <div className="hair-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                <img src="/images/hair_braids.jpg" alt="Hair styling" className="w-full h-full object-cover contrast-105 saturate-105 grayscale-[20%]" loading="lazy" />
+                {/* CACHE BUSTING ADDED HERE */}
+                <img src="/images/hair_braids.jpg?v=2" alt="Hair styling" className="w-full h-full object-cover contrast-105 saturate-105 grayscale-[20%]" loading="lazy" />
               </div>
             </div>
             
@@ -326,7 +335,8 @@ function App() {
           <div ref={nailsRef} className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="nails-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                <img src="/images/nails_art.jpg" alt="Nail art" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
+                {/* CACHE BUSTING ADDED HERE */}
+                <img src="/images/nails_art.jpg?v=2" alt="Nail art" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
             </div>
             
@@ -349,7 +359,8 @@ function App() {
       {/* Section 6: Makeup */}
       <section ref={makeupRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="makeup-reveal absolute inset-0">
-          <img src="/images/makeup_portrait.jpg" alt="Makeup styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
+          {/* CACHE BUSTING ADDED HERE */}
+          <img src="/images/makeup_portrait.jpg?v=2" alt="Makeup styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
         
@@ -369,11 +380,10 @@ function App() {
         </div>
       </section>
 
-      {/* Section 7: Training Academy (UPDATED with image) */}
+      {/* Section 7: Training Academy */}
       <section ref={trainingRef} className="py-24 lg:py-32 bg-[#F5F3EF]">
         <div className="px-6 lg:px-16 max-w-7xl mx-auto">
           
-          {/* New Side-by-Side Layout to feature training_class.jpg */}
           <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
             <div className="training-reveal w-full lg:w-1/2">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4 block">Academy</span>
@@ -398,7 +408,8 @@ function App() {
             
             <div className="training-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-lg border border-charcoal/5">
-                <img src="/images/training_class.jpg" alt="Beauty Training Class" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
+                {/* CACHE BUSTING ADDED HERE */}
+                <img src="/images/training_class.jpg?v=2" alt="Beauty Training Class" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-champagne/10 rounded-full blur-2xl z-[-1]"></div>
             </div>
@@ -421,7 +432,7 @@ function App() {
         </div>
       </section>
 
-      {/* Section 8: Portfolio (UPDATED to show all 9 images) */}
+      {/* Section 8: Portfolio */}
       <section ref={portfolioRef} className="py-24 lg:py-40 bg-ivory min-h-screen">
         <div className="px-6 lg:px-16 max-w-[1400px] mx-auto">
           <div className="portfolio-reveal flex flex-col md:flex-row md:items-end md:justify-between mb-16">
@@ -451,7 +462,6 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 transition-all duration-500">
             {filteredPortfolio.map((item) => (
                 <div key={item.id} className={`portfolio-reveal ${item.aspect} overflow-hidden group bg-gray-100 ${item.offset} animate-in fade-in zoom-in duration-500 rounded-3xl`}>
-                  {/* Faux HD filter added here too */}
                   <img src={item.src} alt={item.category} className="w-full h-full object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
                 </div>
             ))}
