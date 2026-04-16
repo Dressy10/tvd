@@ -28,13 +28,14 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // CACHE BUSTING: Added ?v=2 to force browsers to download the new images
+  // CACHE BUSTING: ?v=2 added to all images. portfolio_hair3 added!
   const portfolioData = [
     { id: 1, src: '/images/portfolio_event1.jpg?v=2', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=2', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 3, src: '/images/portfolio_event3.jpg?v=2', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
     { id: 4, src: '/images/portfolio_hair1.jpg?v=2', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
     { id: 5, src: '/images/portfolio_hair2.jpg?v=2', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 10, src: '/images/portfolio_hair3.jpg?v=2', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
     { id: 6, src: '/images/portfolio_makeup1.jpg?v=2', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 7, src: '/images/portfolio_makeup2.jpg?v=2', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 8, src: '/images/portfolio_nails1.jpg?v=2', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
@@ -206,7 +207,6 @@ function App() {
       {/* Section 1: Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="hero-bg absolute inset-0">
-          {/* CACHE BUSTING ADDED HERE */}
           <img src="/images/hero_arch.jpg?v=2" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105 contrast-105 saturate-105" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/60 mix-blend-multiply" />
         </div>
@@ -249,7 +249,6 @@ function App() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="service-reveal lg:col-span-7 rounded-3xl overflow-hidden relative group">
-              {/* CACHE BUSTING ADDED HERE */}
               <img src="/images/event_balloon_arch.jpg?v=2" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 lg:p-12 text-white">
@@ -283,7 +282,6 @@ function App() {
       {/* Section 3: Event Styling */}
       <section ref={eventRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="event-reveal absolute inset-0">
-          {/* CACHE BUSTING ADDED HERE */}
           <img src="/images/event_balloon_arch.jpg?v=2" alt="Event styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
@@ -310,7 +308,6 @@ function App() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
             <div className="hair-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                {/* CACHE BUSTING ADDED HERE */}
                 <img src="/images/hair_braids.jpg?v=2" alt="Hair styling" className="w-full h-full object-cover contrast-105 saturate-105 grayscale-[20%]" loading="lazy" />
               </div>
             </div>
@@ -332,7 +329,6 @@ function App() {
           <div ref={nailsRef} className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="nails-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                {/* CACHE BUSTING ADDED HERE */}
                 <img src="/images/nails_art.jpg?v=2" alt="Nail art" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
             </div>
@@ -356,7 +352,6 @@ function App() {
       {/* Section 6: Makeup */}
       <section ref={makeupRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="makeup-reveal absolute inset-0">
-          {/* CACHE BUSTING ADDED HERE */}
           <img src="/images/makeup_portrait.jpg?v=2" alt="Makeup styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
@@ -405,7 +400,6 @@ function App() {
             
             <div className="training-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-lg border border-charcoal/5">
-                {/* CACHE BUSTING ADDED HERE */}
                 <img src="/images/training_class.jpg?v=2" alt="Beauty Training Class" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-champagne/10 rounded-full blur-2xl z-[-1]"></div>
