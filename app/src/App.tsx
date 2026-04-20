@@ -143,6 +143,12 @@ function App() {
           <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
             isScrolled ? 'text-champagne group-hover:text-teal' : 'text-white/95 group-hover:text-champagne'
           }`}>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              tricia-val's
+            </span>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              dynasty
+            </span>
           </div>
         </div>
         
