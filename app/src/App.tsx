@@ -520,6 +520,9 @@ function App() {
                   className="space-y-8"
                 >
                   <input type="hidden" name="access_key" value="cc48d5d6-73ed-46d9-80a8-d53f52643aeb" />
+                  <input type="hidden" name="redirect" value="https://tvdynasty.org" />
+                  <input type="hidden" name="subject" value="New Booking Request - tvD Website!" />
+                  <input type="hidden" name="from_name" value="tvD Notifications" />
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="input-group">
