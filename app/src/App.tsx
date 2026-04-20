@@ -18,7 +18,6 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
   
-  // NEW: State to manage the button text and stop the page from redirecting
   const [formStatus, setFormStatus] = useState('Request booking');
 
   const heroRef = useRef<HTMLDivElement>(null);
@@ -31,9 +30,8 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // NEW: Function to send the email silently in the background
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // This stops the browser from leaving your website
+    e.preventDefault(); 
     setFormStatus('Sending...');
 
     const formData = new FormData(e.currentTarget);
@@ -47,9 +45,8 @@ function App() {
       
       if (data.success) {
         setFormStatus('Booking Request Sent!');
-        (e.target as HTMLFormElement).reset(); // Clears the form fields
+        (e.target as HTMLFormElement).reset(); 
         
-        // Reset the button text back after 4 seconds
         setTimeout(() => {
           setFormStatus('Request booking');
         }, 4000);
@@ -153,28 +150,33 @@ function App() {
   return (
     <div className="relative bg-ivory font-sans selection:bg-champagne/30 selection:text-charcoal noise-overlay">
       
-      {/* Upgraded Dynamic Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 lg:px-12 transition-all duration-500 ${
         isScrolled 
           ? 'py-4 bg-ivory shadow-sm border-b border-charcoal/5' 
           : 'py-6 bg-transparent'
       }`}>
         
-        {/* PURE CODE LOGO - Dynamic Colors (Champagne on Scroll) */}
+        {/* PURE CODE LOGO - Dynamic Colors (Forces Champagne if Mobile Menu is Open) */}
         <div 
           className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
         >
           <div className={`flex items-baseline drop-shadow-md transition-colors duration-500 z-10 ${
-            isScrolled ? 'text-champagne group-hover:text-teal' : 'text-white group-hover:text-champagne'
+            (isScrolled || mobileMenuOpen) ? 'text-champagne group-hover:text-teal' : 'text-white group-hover:text-champagne'
           }`}>
             <span className="font-serif italic font-bold text-4xl md:text-5xl tracking-tighter">tv</span>
             <span className="font-display italic font-semibold text-5xl md:text-6xl -ml-1.5">D</span>
           </div>
           
           <div className={`flex flex-col items-center mt-[-6px] transition-colors duration-500 ${
-            isScrolled ? 'text-champagne group-hover:text-teal' : 'text-white/95 group-hover:text-champagne'
+            (isScrolled || mobileMenuOpen) ? 'text-champagne group-hover:text-teal' : 'text-white/95 group-hover:text-champagne'
           }`}>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              tricia-val's
+            </span>
+            <span className="font-sans font-extrabold text-[12px] md:text-[14px] leading-[1.1] tracking-tight lowercase">
+              dynasty
+            </span>
           </div>
         </div>
         
@@ -205,9 +207,14 @@ function App() {
           </button>
         </div>
         
+        {/* Mobile Hamburger / Close Button (Forces Champagne if Mobile Menu is Open) */}
         <button 
           className={`lg:hidden p-2 transition-colors duration-500 ${
-            isScrolled ? 'text-charcoal' : 'text-white'
+            mobileMenuOpen 
+              ? 'text-champagne' 
+              : isScrolled 
+                ? 'text-charcoal' 
+                : 'text-white'
           }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
@@ -541,7 +548,6 @@ function App() {
               <div className="bg-ivory p-8 lg:p-12 border border-charcoal/10 rounded-3xl">
                 <h3 className="font-display text-2xl font-light text-charcoal mb-8">Request a booking or training slot</h3>
                 
-                {/* NEW: Updated Form Component */}
                 <form 
                   onSubmit={handleFormSubmit}
                   className="space-y-8"
