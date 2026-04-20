@@ -17,6 +17,9 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeFilter, setActiveFilter] = useState('All');
+  
+  // NEW: State to manage the button text and stop the page from redirecting
+  const [formStatus, setFormStatus] = useState('Request booking');
 
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -28,7 +31,36 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // CACHE BUSTING: Upgraded to ?v=3 to force a hard reset on all devices
+  // NEW: Function to send the email silently in the background
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // This stops the browser from leaving your website
+    setFormStatus('Sending...');
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+      
+      if (data.success) {
+        setFormStatus('Booking Request Sent!');
+        (e.target as HTMLFormElement).reset(); // Clears the form fields
+        
+        // Reset the button text back after 4 seconds
+        setTimeout(() => {
+          setFormStatus('Request booking');
+        }, 4000);
+      } else {
+        setFormStatus('Error sending. Try again.');
+      }
+    } catch (error) {
+      setFormStatus('Error sending. Try again.');
+    }
+  };
+
   const portfolioData = [
     { id: 1, src: '/images/portfolio_event1.jpg?v=3', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=3', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
@@ -378,7 +410,7 @@ function App() {
         </div>
       </section>
 
-      {/* Section 7: Training Academy (UPGRADED WITH 3 COURSE IMAGES) */}
+      {/* Section 7: Training Academy */}
       <section ref={trainingRef} className="py-24 lg:py-32 bg-[#F5F3EF]">
         <div className="px-6 lg:px-16 max-w-7xl mx-auto">
           
@@ -514,13 +546,13 @@ function App() {
             <div className="contact-reveal w-full lg:w-7/12">
               <div className="bg-ivory p-8 lg:p-12 border border-charcoal/10 rounded-3xl">
                 <h3 className="font-display text-2xl font-light text-charcoal mb-8">Request a booking or training slot</h3>
+                
+                {/* NEW: Updated Form Component */}
                 <form 
-                  action="https://api.web3forms.com/submit" 
-                  method="POST" 
+                  onSubmit={handleFormSubmit}
                   className="space-y-8"
                 >
                   <input type="hidden" name="access_key" value="cc48d5d6-73ed-46d9-80a8-d53f52643aeb" />
-                  <input type="hidden" name="redirect" value="https://tvdynasty.org" />
                   <input type="hidden" name="subject" value="New Booking Request" />
                   <input type="hidden" name="from_name" value="tvD Notifications" />
 
@@ -553,8 +585,14 @@ function App() {
                     <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
-                  <button type="submit" className="btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full bg-charcoal text-white">
-                    Request booking
+                  <button 
+                    type="submit" 
+                    disabled={formStatus === 'Sending...'}
+                    className={`btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full text-white transition-all duration-300 ${
+                      formStatus === 'Booking Request Sent!' ? 'bg-teal' : 'bg-charcoal hover:bg-champagne hover:text-charcoal'
+                    }`}
+                  >
+                    {formStatus}
                   </button>
                 </form>
               </div>
