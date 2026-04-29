@@ -525,7 +525,7 @@ function App() {
               <div className="mt-16 space-y-8 font-light text-sm tracking-wide">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-2">Email</p>
-                  <p className="text-charcoal">triciaval07@gmail.com</p>
+                  <p className="text-charcoal">contact@tvdynasty.com.ng</p>
                 </div>
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-2">Phone</p>
