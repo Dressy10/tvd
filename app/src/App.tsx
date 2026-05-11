@@ -590,57 +590,59 @@ function App() {
         </div>
         
         {/* Footer with Socials */}
-        <div className="mt-20 lg:mt-32 border-t border-charcoal/10 pt-16 pb-12 px-6 lg:px-16 max-w-7xl mx-auto flex flex-col items-center gap-10">
-          
-          <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal">
-            Tricia Val's Dynasty
-          </div>
+        <div className="mt-20 lg:mt-32 border-t border-charcoal/10 pt-16 pb-12 px-6 lg:px-16 max-w-7xl mx-auto flex flex-col items-center gap-8">
 
           {/* THE COMPLETE SOCIALS SECTION */}
-          <div className="flex flex-wrap justify-center gap-4">
-            {/* Instagram */}
-            <a href="https://instagram.com/tricia_vaal" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
-              <Instagram size={20} strokeWidth={1.5} />
-            </a>
+          <div className="flex flex-col items-center gap-6">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal">
+              Socials
+            </div>
             
-            {/* Facebook */}
-            <a href="https://facebook.com/patricia.valentine.790" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
-              <Facebook size={20} strokeWidth={1.5} />
-            </a>
+            <div className="flex flex-wrap justify-center gap-4">
+              {/* Instagram */}
+              <a href="https://instagram.com/tricia_vaal" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                <Instagram size={20} strokeWidth={1.5} />
+              </a>
+              
+              {/* Facebook */}
+              <a href="https://facebook.com/patricia.valentine.790" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                <Facebook size={20} strokeWidth={1.5} />
+              </a>
 
-            {/* TikTok */}
-            <a href="https://tiktok.com/@triciaval" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 0 1-8 0 4 4 0 0 1 4-4z" />
-              </svg>
-            </a>
+              {/* TikTok */}
+              <a href="https://tiktok.com/@your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 0 1-8 0 4 4 0 0 1 4-4z" />
+                </svg>
+              </a>
 
-            {/* X / Twitter
-            <a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-              </svg>
-            </a> */}
+              {/* X / Twitter
+              <a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                </svg>
+              </a> */}
 
-            {/* WhatsApp (Now with actual WhatsApp Icon instead of Phone) */}
-            <a href="https://wa.me/2348166983061" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
-                <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
-              </svg>
-            </a>
-            
-            {/* Email */}
-            <a href="mailto:contact@tvdynasty.com.ng" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
-              <Mail size={20} strokeWidth={1.5} />
-            </a>
+              {/* WhatsApp */}
+              <a href="https://wa.me/2348166983061" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                  <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                </svg>
+              </a>
+              
+              {/* Email */}
+              <a href="mailto:contact@tvdynasty.com.ng" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                <Mail size={20} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
           {/* END OF SOCIALS SECTION */}
 
-          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-8 pt-8 border-t border-charcoal/5">
-            <p className="text-xs text-soft-gray font-light">Beauty, events & style — curated for you.</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-soft-gray">
+          <div className="w-full flex flex-col items-center justify-center gap-3 mt-4 pt-8 border-t border-charcoal/5">
+            <p className="text-xs text-soft-gray font-light text-center">Beauty, events & style — curated for you.</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-soft-gray text-center">
               © 2026 All rights reserved.
             </p>
           </div>
