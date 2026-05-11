@@ -610,7 +610,7 @@ function App() {
               </a>
 
               {/* TikTok */}
-              <a href="https://tiktok.com/@your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+              <a href="https://tiktok.com/@triciaval" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 0 1-8 0 4 4 0 0 1 4-4z" />
                 </svg>
