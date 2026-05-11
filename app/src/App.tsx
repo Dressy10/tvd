@@ -7,7 +7,11 @@ import {
   Palette,
   Gem,
   Scissors,
-  Star
+  Star,
+  Instagram,
+  Facebook,
+  Phone,
+  Mail
 } from 'lucide-react';
 import './App.css';
 
@@ -156,7 +160,6 @@ function App() {
           : 'py-6 bg-transparent'
       }`}>
         
-        {/* PURE CODE LOGO - Dynamic Colors (Forces Champagne if Mobile Menu is Open) */}
         <div 
           className="cursor-pointer flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 group"
           onClick={() => scrollToSection(heroRef)}
@@ -201,7 +204,6 @@ function App() {
           </button>
         </div>
         
-        {/* Mobile Hamburger / Close Button (Forces Champagne if Mobile Menu is Open) */}
         <button 
           className={`lg:hidden p-2 transition-colors duration-500 ${
             mobileMenuOpen 
@@ -216,7 +218,6 @@ function App() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-ivory/95 backdrop-blur-xl lg:hidden flex flex-col items-center justify-center gap-10">
           {navLinks.map((link) => (
@@ -535,6 +536,48 @@ function App() {
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-2">Location</p>
                   <p className="text-charcoal max-w-[200px] leading-relaxed">101 Ikot Udoro, off Ikot Ekpene Road, Akwa Ibom, Nigeria</p>
                 </div>
+
+                {/* THE COMPLETE SOCIALS SECTION */}
+                <div className="pt-8 mt-8 border-t border-charcoal/10">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-soft-gray mb-6">Connect & Follow</p>
+                  <div className="flex flex-wrap gap-4">
+                    {/* Instagram */}
+                    <a href="https://instagram.com/tricia_vaal" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                      <Instagram size={20} strokeWidth={1.5} />
+                    </a>
+                    
+                    {/* Facebook */}
+                    <a href="https://facebook.com/patricia.valentine.790" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                      <Facebook size={20} strokeWidth={1.5} />
+                    </a>
+
+                    {/* TikTok (Custom SVG) */}
+                    <a href="https://tiktok.com/@your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 0 1-8 0 4 4 0 0 1 4-4z" />
+                      </svg>
+                    </a>
+
+                    {/* X / Twitter (Custom SVG) */}
+                    <a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                      </svg>
+                    </a>
+
+                    {/* WhatsApp */}
+                    <a href="https://wa.me/2348166983061" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                      <Phone size={20} strokeWidth={1.5} />
+                    </a>
+                    
+                    {/* Email */}
+                    <a href="mailto:contact@tvdynasty.com.ng" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
+                      <Mail size={20} strokeWidth={1.5} />
+                    </a>
+                  </div>
+                </div>
+                {/* END OF SOCIALS SECTION */}
+
               </div>
             </div>
             
