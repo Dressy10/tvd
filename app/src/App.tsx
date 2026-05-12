@@ -241,9 +241,6 @@ function App() {
         
         <div className="hero-content relative z-10 flex flex-col items-center justify-center text-white px-6 mt-16 w-full max-w-5xl mx-auto">
           <div className="relative text-center">
-            <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-white/90 mb-6 block drop-shadow-md font-semibold">
-              Tricia-Val's Dynasty
-            </span>
             <h1 className="hero-headline font-display text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.1] tracking-tight text-white drop-shadow-2xl">
               Crafting the <span className="italic font-serif text-white">perfect vibe.</span>
             </h1>
