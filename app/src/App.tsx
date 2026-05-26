@@ -23,7 +23,6 @@ function App() {
   
   const [formStatus, setFormStatus] = useState('Request booking');
   
-  // NEW STATES FOR POLICIES
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [showPolicies, setShowPolicies] = useState(false);
 
@@ -37,9 +36,21 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
+  // THIS LOCKS THE BACKGROUND SCROLL WHEN POLICIES ARE OPEN
+  useEffect(() => {
+    if (showPolicies) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showPolicies]);
+
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
-    if (!acceptedTerms) return; // Extra security to prevent submission
+    if (!acceptedTerms) return; 
     
     setFormStatus('Sending...');
 
@@ -55,7 +66,7 @@ function App() {
       if (data.success) {
         setFormStatus('Booking Request Sent!');
         (e.target as HTMLFormElement).reset(); 
-        setAcceptedTerms(false); // Reset the checkbox after sending
+        setAcceptedTerms(false); 
         
         setTimeout(() => {
           setFormStatus('Request booking');
@@ -578,7 +589,6 @@ function App() {
                     <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
-                  {/* NEW TERMS AND POLICIES CHECKBOX */}
                   <div className="flex items-start gap-3 mt-4">
                     <input 
                       type="checkbox" 
@@ -592,7 +602,6 @@ function App() {
                     </label>
                   </div>
                   
-                  {/* BUTTON DISABLES IF TERMS NOT ACCEPTED */}
                   <button 
                     type="submit" 
                     disabled={formStatus === 'Sending...' || !acceptedTerms}
@@ -663,81 +672,89 @@ function App() {
         </div>
       </section>
 
-      {/* NEW POLICY MODAL POP-UP */}
+      {/* NEW FIXED STRUCTURE POLICY MODAL POP-UP */}
       {showPolicies && (
-        <div className="fixed inset-0 z-[100] bg-charcoal/60 backdrop-blur-sm flex items-center justify-center p-6">
-          <div className="bg-ivory w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl p-8 lg:p-12 relative shadow-2xl">
-            <button 
-              onClick={() => setShowPolicies(false)}
-              className="absolute top-6 right-6 p-2 bg-gray-100 rounded-full hover:bg-champagne hover:text-white transition-colors"
-            >
-              <X size={20} strokeWidth={1.5} />
-            </button>
+        <div className="fixed inset-0 z-[100] bg-charcoal/60 backdrop-blur-sm flex items-center justify-center p-4 lg:p-6">
+          <div className="bg-ivory w-full max-w-2xl max-h-[90vh] flex flex-col rounded-3xl relative shadow-2xl">
             
-            <h3 className="font-display text-2xl lg:text-3xl text-charcoal mb-2">Booking Policies</h3>
-            <p className="text-sm text-soft-gray font-light mb-8">To ensure smooth operations and respect for everyone’s time, please carefully review our policies below. Booking an appointment with us means you agree to these terms.</p>
+            {/* Header with Sticky Close Button */}
+            <div className="flex justify-between items-center p-6 lg:px-10 border-b border-charcoal/10 shrink-0">
+              <h3 className="font-display text-xl lg:text-2xl text-charcoal">Booking Policies</h3>
+              <button 
+                onClick={() => setShowPolicies(false)}
+                className="p-2 bg-gray-100 rounded-full hover:bg-champagne hover:text-white transition-colors flex-shrink-0"
+              >
+                <X size={20} strokeWidth={1.5} />
+              </button>
+            </div>
             
-            <div className="space-y-8 text-sm font-light text-soft-gray leading-relaxed">
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">1. Booking Fee</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>A non-refundable booking fee is required to secure all appointments. (Booking fee is 30% of the total service charge).</li>
-                  <li>No appointment is confirmed until the booking fee is paid.</li>
-                  <li>The booking fee is deducted from the total service cost on the day of your appointment.</li>
-                  <li>Booking fees are non-transferable to another person (except if he/she is taking the particular date and time you were initially booked for) and may be non-refundable, depending on circumstances.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">2. Lateness Policy</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Clients are expected to arrive on time for their appointments.</li>
-                  <li>A grace period of 20 minutes is allowed.</li>
-                  <li>If you arrive later than the grace period: Your service time may be reduced, or your appointment may be cancelled if it affects other bookings.</li>
-                  <li>Late arrivals may attract an additional lateness fee which will be 10% of your booking fee or may require rescheduling.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">3. Rescheduling Policy</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Rescheduling requests must be made at least 24 hours before your appointment time.</li>
-                  <li>Any request made less than 24 hours may result in: Loss of booking fee, or 20% of your booking fee would be deducted, or payment of a new booking fee would be required.</li>
-                  <li>Only one reschedule is allowed per booking.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">4. Cancellation Policy</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Cancellations made earlier than 24 hours will attract a 20% deduction of your booking fee.</li>
-                  <li>Cancellation made less than 24 hours before the appointment will result in forfeiture of the booking fee.</li>
-                  <li>Same-day cancellations or no-shows will be treated as a full cancellation with no refund.</li>
-                  <li>Clients who repeatedly cancel or fail to show up may be required to pay in full upfront for future bookings or may be declined our services.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">5. No-Show Policy</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>Failure to show up without prior notice is considered a no-show.</li>
-                  <li>Booking fees in this regard will be forfeited.</li>
-                  <li>Rebooking will require a new booking fee.</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-display text-lg text-charcoal mb-2">6. Emergency Consideration</h4>
-                <ul className="list-disc pl-5 space-y-1">
-                  <li>We understand genuine emergencies happen.</li>
-                  <li>Emergency cases are reviewed at management’s discretion and do not guarantee a refund or reschedule.</li>
-                </ul>
-              </div>
+            {/* Scrollable Content Area */}
+            <div className="p-6 lg:p-10 overflow-y-auto overscroll-contain">
+              <p className="text-sm text-soft-gray font-light mb-8">To ensure smooth operations and respect for everyone’s time, please carefully review our policies below. Booking an appointment with us means you agree to these terms.</p>
               
-              <div className="pt-4 border-t border-charcoal/10">
-                <p className="font-medium text-charcoal">By checking the agreement box and booking an appointment with Tricia-Val’s Dynasty, you acknowledge that you have read, understood, and agreed to all policies stated above.</p>
+              <div className="space-y-8 text-sm font-light text-soft-gray leading-relaxed">
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">1. Booking Fee</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>A non-refundable booking fee is required to secure all appointments. (Booking fee is 30% of the total service charge).</li>
+                    <li>No appointment is confirmed until the booking fee is paid.</li>
+                    <li>The booking fee is deducted from the total service cost on the day of your appointment.</li>
+                    <li>Booking fees are non-transferable to another person (except if he/she is taking the particular date and time you were initially booked for) and may be non-refundable, depending on circumstances.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">2. Lateness Policy</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Clients are expected to arrive on time for their appointments.</li>
+                    <li>A grace period of 20 minutes is allowed.</li>
+                    <li>If you arrive later than the grace period: Your service time may be reduced, or your appointment may be cancelled if it affects other bookings.</li>
+                    <li>Late arrivals may attract an additional lateness fee which will be 10% of your booking fee or may require rescheduling.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">3. Rescheduling Policy</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Rescheduling requests must be made at least 24 hours before your appointment time.</li>
+                    <li>Any request made less than 24 hours may result in: Loss of booking fee, or 20% of your booking fee would be deducted, or payment of a new booking fee would be required.</li>
+                    <li>Only one reschedule is allowed per booking.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">4. Cancellation Policy</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Cancellations made earlier than 24 hours will attract a 20% deduction of your booking fee.</li>
+                    <li>Cancellation made less than 24 hours before the appointment will result in forfeiture of the booking fee.</li>
+                    <li>Same-day cancellations or no-shows will be treated as a full cancellation with no refund.</li>
+                    <li>Clients who repeatedly cancel or fail to show up may be required to pay in full upfront for future bookings or may be declined our services.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">5. No-Show Policy</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>Failure to show up without prior notice is considered a no-show.</li>
+                    <li>Booking fees in this regard will be forfeited.</li>
+                    <li>Rebooking will require a new booking fee.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-display text-lg text-charcoal mb-2">6. Emergency Consideration</h4>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>We understand genuine emergencies happen.</li>
+                    <li>Emergency cases are reviewed at management’s discretion and do not guarantee a refund or reschedule.</li>
+                  </ul>
+                </div>
+                
+                <div className="pt-6 border-t border-charcoal/10">
+                  <p className="font-medium text-charcoal text-center">By checking the agreement box and booking an appointment with Tricia-Val’s Dynasty, you acknowledge that you have read, understood, and agreed to all policies stated above.</p>
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       )}
