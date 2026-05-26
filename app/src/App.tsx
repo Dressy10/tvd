@@ -22,6 +22,10 @@ function App() {
   const [activeFilter, setActiveFilter] = useState('All');
   
   const [formStatus, setFormStatus] = useState('Request booking');
+  
+  // NEW STATES FOR POLICIES
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [showPolicies, setShowPolicies] = useState(false);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
@@ -35,6 +39,8 @@ function App() {
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
+    if (!acceptedTerms) return; // Extra security to prevent submission
+    
     setFormStatus('Sending...');
 
     const formData = new FormData(e.currentTarget);
@@ -49,6 +55,7 @@ function App() {
       if (data.success) {
         setFormStatus('Booking Request Sent!');
         (e.target as HTMLFormElement).reset(); 
+        setAcceptedTerms(false); // Reset the checkbox after sending
         
         setTimeout(() => {
           setFormStatus('Request booking');
@@ -571,11 +578,28 @@ function App() {
                     <textarea name="Message" rows={4} required placeholder="Tell us about your event or service needs..." className="w-full bg-transparent border-b border-charcoal/20 pb-3 text-sm font-light focus:outline-none focus:border-champagne transition-colors resize-none mt-4"></textarea>
                   </div>
                   
+                  {/* NEW TERMS AND POLICIES CHECKBOX */}
+                  <div className="flex items-start gap-3 mt-4">
+                    <input 
+                      type="checkbox" 
+                      id="terms" 
+                      checked={acceptedTerms}
+                      onChange={(e) => setAcceptedTerms(e.target.checked)}
+                      className="mt-1 w-4 h-4 accent-charcoal cursor-pointer" 
+                    />
+                    <label htmlFor="terms" className="text-sm font-light text-soft-gray leading-relaxed cursor-pointer">
+                      I have read and agree to the <button type="button" onClick={() => setShowPolicies(true)} className="text-champagne underline hover:text-charcoal transition-colors">Booking Policies & Terms</button>.
+                    </label>
+                  </div>
+                  
+                  {/* BUTTON DISABLES IF TERMS NOT ACCEPTED */}
                   <button 
                     type="submit" 
-                    disabled={formStatus === 'Sending...'}
+                    disabled={formStatus === 'Sending...' || !acceptedTerms}
                     className={`btn-editorial w-full py-4 text-xs uppercase tracking-[0.2em] mt-4 rounded-full text-white transition-all duration-300 ${
-                      formStatus === 'Booking Request Sent!' ? 'bg-teal' : 'bg-charcoal hover:bg-champagne hover:text-charcoal'
+                      formStatus === 'Booking Request Sent!' 
+                        ? 'bg-teal' 
+                        : (!acceptedTerms ? 'bg-gray-400 cursor-not-allowed opacity-70' : 'bg-charcoal hover:bg-champagne hover:text-charcoal')
                     }`}
                   >
                     {formStatus}
@@ -589,38 +613,32 @@ function App() {
         {/* Footer with Socials */}
         <div className="mt-20 lg:mt-32 border-t border-charcoal/10 pt-16 pb-12 px-6 lg:px-16 max-w-7xl mx-auto flex flex-col items-center gap-8">
 
-          {/* THE COMPLETE SOCIALS SECTION */}
           <div className="flex flex-col items-center gap-6">
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-charcoal">
               Socials
             </div>
             
             <div className="flex flex-wrap justify-center gap-4">
-              {/* Instagram */}
               <a href="https://instagram.com/tricia_vaal" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
                 <Instagram size={20} strokeWidth={1.5} />
               </a>
               
-              {/* Facebook */}
               <a href="https://facebook.com/patricia.valentine.790" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
                 <Facebook size={20} strokeWidth={1.5} />
               </a>
 
-              {/* TikTok */}
-              <a href="https://tiktok.com/@triciaval" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
+              <a href="https://tiktok.com/@your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3v8a4 4 0 0 1-8 0 4 4 0 0 1 4-4z" />
                 </svg>
               </a>
 
-              {/* X / Twitter
               <a href="https://twitter.com/your_handle" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
                 </svg>
-              </a> */}
+              </a>
 
-              {/* WhatsApp */}
               <a href="https://wa.me/2348166983061" target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300 flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -629,13 +647,11 @@ function App() {
                 </svg>
               </a>
               
-              {/* Email */}
               <a href="mailto:contact@tvdynasty.com.ng" className="p-3 bg-white border border-charcoal/10 rounded-full text-charcoal hover:-translate-y-1 hover:border-champagne hover:text-champagne hover:shadow-md transition-all duration-300">
                 <Mail size={20} strokeWidth={1.5} />
               </a>
             </div>
           </div>
-          {/* END OF SOCIALS SECTION */}
 
           <div className="w-full flex flex-col items-center justify-center gap-3 mt-4 pt-8 border-t border-charcoal/5">
             <p className="text-xs text-soft-gray font-light text-center">Beauty, events & style — curated for you.</p>
@@ -646,6 +662,86 @@ function App() {
           
         </div>
       </section>
+
+      {/* NEW POLICY MODAL POP-UP */}
+      {showPolicies && (
+        <div className="fixed inset-0 z-[100] bg-charcoal/60 backdrop-blur-sm flex items-center justify-center p-6">
+          <div className="bg-ivory w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-3xl p-8 lg:p-12 relative shadow-2xl">
+            <button 
+              onClick={() => setShowPolicies(false)}
+              className="absolute top-6 right-6 p-2 bg-gray-100 rounded-full hover:bg-champagne hover:text-white transition-colors"
+            >
+              <X size={20} strokeWidth={1.5} />
+            </button>
+            
+            <h3 className="font-display text-2xl lg:text-3xl text-charcoal mb-2">Booking Policies</h3>
+            <p className="text-sm text-soft-gray font-light mb-8">To ensure smooth operations and respect for everyone’s time, please carefully review our policies below. Booking an appointment with us means you agree to these terms.</p>
+            
+            <div className="space-y-8 text-sm font-light text-soft-gray leading-relaxed">
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">1. Booking Fee</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>A non-refundable booking fee is required to secure all appointments. (Booking fee is 30% of the total service charge).</li>
+                  <li>No appointment is confirmed until the booking fee is paid.</li>
+                  <li>The booking fee is deducted from the total service cost on the day of your appointment.</li>
+                  <li>Booking fees are non-transferable to another person (except if he/she is taking the particular date and time you were initially booked for) and may be non-refundable, depending on circumstances.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">2. Lateness Policy</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Clients are expected to arrive on time for their appointments.</li>
+                  <li>A grace period of 20 minutes is allowed.</li>
+                  <li>If you arrive later than the grace period: Your service time may be reduced, or your appointment may be cancelled if it affects other bookings.</li>
+                  <li>Late arrivals may attract an additional lateness fee which will be 10% of your booking fee or may require rescheduling.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">3. Rescheduling Policy</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Rescheduling requests must be made at least 24 hours before your appointment time.</li>
+                  <li>Any request made less than 24 hours may result in: Loss of booking fee, or 20% of your booking fee would be deducted, or payment of a new booking fee would be required.</li>
+                  <li>Only one reschedule is allowed per booking.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">4. Cancellation Policy</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Cancellations made earlier than 24 hours will attract a 20% deduction of your booking fee.</li>
+                  <li>Cancellation made less than 24 hours before the appointment will result in forfeiture of the booking fee.</li>
+                  <li>Same-day cancellations or no-shows will be treated as a full cancellation with no refund.</li>
+                  <li>Clients who repeatedly cancel or fail to show up may be required to pay in full upfront for future bookings or may be declined our services.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">5. No-Show Policy</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Failure to show up without prior notice is considered a no-show.</li>
+                  <li>Booking fees in this regard will be forfeited.</li>
+                  <li>Rebooking will require a new booking fee.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-display text-lg text-charcoal mb-2">6. Emergency Consideration</h4>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>We understand genuine emergencies happen.</li>
+                  <li>Emergency cases are reviewed at management’s discretion and do not guarantee a refund or reschedule.</li>
+                </ul>
+              </div>
+              
+              <div className="pt-4 border-t border-charcoal/10">
+                <p className="font-medium text-charcoal">By checking the agreement box and booking an appointment with Tricia-Val’s Dynasty, you acknowledge that you have read, understood, and agreed to all policies stated above.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 }
