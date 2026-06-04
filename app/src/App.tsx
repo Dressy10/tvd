@@ -80,16 +80,40 @@ function App() {
   };
 
   const portfolioData = [
+    // Events
     { id: 1, src: '/images/portfolio_event1.jpg?v=3', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=3', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 3, src: '/images/portfolio_event3.jpg?v=3', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
-    { id: 4, src: '/images/portfolio_hair1.jpg?v=3', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
-    { id: 5, src: '/images/portfolio_hair2.jpg?v=3', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 6, src: '/images/portfolio_hair3.jpg?v=3', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
-    { id: 7, src: '/images/portfolio_makeup1.jpg?v=3', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 8, src: '/images/portfolio_makeup2.jpg?v=3', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 9, src: '/images/portfolio_nails1.jpg?v=3', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
-    { id: 10, src: '/images/portfolio_nails2.jpg?v=3', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    
+    // Makeup (4 images)
+    { id: 4, src: '/images/portfolio_makeup1.jpg?v=3', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 5, src: '/images/portfolio_makeup2.jpg?v=3', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 6, src: '/images/portfolio_makeup3.jpg?v=3', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
+    { id: 7, src: '/images/portfolio_makeup4.jpg?v=3', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
+
+    // Hair (10 images)
+    { id: 8, src: '/images/portfolio_hair1.jpg?v=3', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 9, src: '/images/portfolio_hair2.jpg?v=3', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 10, src: '/images/portfolio_hair3.jpg?v=3', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 11, src: '/images/portfolio_hair4.jpg?v=3', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 12, src: '/images/portfolio_hair5.jpg?v=3', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 13, src: '/images/portfolio_hair6.jpg?v=3', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 14, src: '/images/portfolio_hair7.jpg?v=3', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 15, src: '/images/portfolio_hair8.jpg?v=3', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 16, src: '/images/portfolio_hair9.jpg?v=3', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
+    { id: 17, src: '/images/portfolio_hair10.jpg?v=3', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+
+    // Nails (10 images)
+    { id: 18, src: '/images/portfolio_nails1.jpg?v=3', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 19, src: '/images/portfolio_nails2.jpg?v=3', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    { id: 20, src: '/images/portfolio_nails3.jpg?v=3', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 21, src: '/images/portfolio_nails4.jpg?v=3', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 22, src: '/images/portfolio_nails5.jpg?v=3', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 23, src: '/images/portfolio_nails6.jpg?v=3', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 24, src: '/images/portfolio_nails7.jpg?v=3', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-16' },
+    { id: 25, src: '/images/portfolio_nails8.jpg?v=3', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 26, src: '/images/portfolio_nails9.jpg?v=3', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 27, src: '/images/portfolio_nails10.jpg?v=3', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
   ];
 
   const filteredPortfolio = activeFilter === 'All' 
