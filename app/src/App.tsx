@@ -170,48 +170,51 @@ function App() {
     {
       category: "Makeup & Events",
       items: [
+        { name: "Regular / Photoshoot Glam", price: "₦10,000 / ₦12,000" },
+        { name: "Bridal Shower / Intro / Dedication", price: "₦15,000 — ₦20,000" },
+        { name: "Bridal Train (1 Person / 3 Persons)", price: "₦12,000 / ₦30,000" },
+        { name: "Bridal Glam (Base / With Touch-Up & Gele)", price: "₦50,000 / ₦70,000" },
+        { name: "Gele Tying (Regular / Bridal)", price: "₦2,000 / ₦10,000" },
         { name: "Event Decoration", price: "Custom Quote" },
-        { name: "Bridal / Studio Glam", price: "Custom Quote" },
-        { name: "Traditional Gele", price: "Custom Quote" },
       ]
     }
   ];
 
   const portfolioData = [
     // Events
-    { id: 1, src: '/images/portfolio_event1.jpg?v=4', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 2, src: '/images/portfolio_event2.jpg?v=4', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 3, src: '/images/portfolio_event3.jpg?v=4', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
+    { id: 1, src: '/images/portfolio_event1.jpg?v=5', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 2, src: '/images/portfolio_event2.jpg?v=5', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 3, src: '/images/portfolio_event3.jpg?v=5', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
     
     // Makeup
-    { id: 4, src: '/images/portfolio_makeup1.jpg?v=4', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 5, src: '/images/portfolio_makeup2.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 6, src: '/images/portfolio_makeup3.jpg?v=4', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
-    { id: 7, src: '/images/portfolio_makeup4.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
+    { id: 4, src: '/images/portfolio_makeup1.jpg?v=5', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 5, src: '/images/portfolio_makeup2.jpg?v=5', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 6, src: '/images/portfolio_makeup3.jpg?v=5', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
+    { id: 7, src: '/images/portfolio_makeup4.jpg?v=5', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
 
     // Hair
-    { id: 8, src: '/images/portfolio_hair1.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
-    { id: 9, src: '/images/portfolio_hair2.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 10, src: '/images/portfolio_hair3.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
-    { id: 11, src: '/images/portfolio_hair4.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 12, src: '/images/portfolio_hair5.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
-    { id: 13, src: '/images/portfolio_hair6.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
-    { id: 14, src: '/images/portfolio_hair7.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
-    { id: 15, src: '/images/portfolio_hair8.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 16, src: '/images/portfolio_hair9.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
-    { id: 17, src: '/images/portfolio_hair10.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    { id: 8, src: '/images/portfolio_hair1.jpg?v=5', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 9, src: '/images/portfolio_hair2.jpg?v=5', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 10, src: '/images/portfolio_hair3.jpg?v=5', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 11, src: '/images/portfolio_hair4.jpg?v=5', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 12, src: '/images/portfolio_hair5.jpg?v=5', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 13, src: '/images/portfolio_hair6.jpg?v=5', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 14, src: '/images/portfolio_hair7.jpg?v=5', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 15, src: '/images/portfolio_hair8.jpg?v=5', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 16, src: '/images/portfolio_hair9.jpg?v=5', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
+    { id: 17, src: '/images/portfolio_hair10.jpg?v=5', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
 
     // Nails
-    { id: 18, src: '/images/portfolio_nails1.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
-    { id: 19, src: '/images/portfolio_nails2.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
-    { id: 20, src: '/images/portfolio_nails3.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 21, src: '/images/portfolio_nails4.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 22, src: '/images/portfolio_nails5.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 23, src: '/images/portfolio_nails6.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 24, src: '/images/portfolio_nails7.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-16' },
-    { id: 25, src: '/images/portfolio_nails8.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 26, src: '/images/portfolio_nails9.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 27, src: '/images/portfolio_nails10.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 18, src: '/images/portfolio_nails1.jpg?v=5', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 19, src: '/images/portfolio_nails2.jpg?v=5', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    { id: 20, src: '/images/portfolio_nails3.jpg?v=5', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 21, src: '/images/portfolio_nails4.jpg?v=5', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 22, src: '/images/portfolio_nails5.jpg?v=5', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 23, src: '/images/portfolio_nails6.jpg?v=5', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 24, src: '/images/portfolio_nails7.jpg?v=5', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-16' },
+    { id: 25, src: '/images/portfolio_nails8.jpg?v=5', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 26, src: '/images/portfolio_nails9.jpg?v=5', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 27, src: '/images/portfolio_nails10.jpg?v=5', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
   ];
 
   const filteredPortfolio = activeFilter === 'All' 
@@ -377,7 +380,7 @@ function App() {
       {/* Section 1: Hero */}
       <section ref={heroRef} className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="hero-bg absolute inset-0">
-          <img src="/images/hero_arch.jpg?v=4" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105 contrast-105 saturate-105" loading="eager" />
+          <img src="/images/hero_arch.jpg?v=5" alt="Editorial beauty" className="w-full h-full object-cover object-center scale-105 contrast-105 saturate-105" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal/20 via-transparent to-charcoal/60 mix-blend-multiply" />
         </div>
         
@@ -412,7 +415,7 @@ function App() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="service-reveal lg:col-span-7 rounded-3xl overflow-hidden relative group">
-              <img src="/images/event_balloon_arch.jpg?v=4" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
+              <img src="/images/event_balloon_arch.jpg?v=5" alt="Event Decoration" className="w-full h-full min-h-[400px] lg:min-h-[600px] object-cover contrast-105 saturate-105 transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 lg:p-12 text-white">
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-champagne mb-4 block">Featured</span>
@@ -445,7 +448,7 @@ function App() {
       {/* Section 3: Event Styling */}
       <section ref={eventRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="event-reveal absolute inset-0">
-          <img src="/images/event_balloon_arch.jpg?v=4" alt="Event styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
+          <img src="/images/event_balloon_arch.jpg?v=5" alt="Event styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
         
@@ -471,7 +474,7 @@ function App() {
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-32">
             <div className="hair-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                <img src="/images/hair_braids.jpg?v=4" alt="Hair styling" className="w-full h-full object-cover contrast-105 saturate-105 grayscale-[20%]" loading="lazy" />
+                <img src="/images/hair_braids.jpg?v=5" alt="Hair styling" className="w-full h-full object-cover contrast-105 saturate-105 grayscale-[20%]" loading="lazy" />
               </div>
             </div>
             
@@ -492,7 +495,7 @@ function App() {
           <div ref={nailsRef} className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
             <div className="nails-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                <img src="/images/nails_art.jpg?v=4" alt="Nail art" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
+                <img src="/images/nails_art.jpg?v=5" alt="Nail art" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
             </div>
             
@@ -515,7 +518,7 @@ function App() {
       {/* Section 6: Makeup */}
       <section ref={makeupRef} className="py-32 lg:py-48 relative overflow-hidden flex items-center justify-center">
         <div className="makeup-reveal absolute inset-0">
-          <img src="/images/makeup_portrait.jpg?v=4" alt="Makeup styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
+          <img src="/images/makeup_portrait.jpg?v=5" alt="Makeup styling" className="w-full h-full object-cover contrast-105 saturate-105 scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-charcoal/60" />
         </div>
         
@@ -571,9 +574,9 @@ function App() {
           </div>
 
           <div className="pricing-reveal mt-12 text-center border-t border-charcoal/5 pt-8">
-            <p className="text-xs text-soft-gray font-light italic">
+            <p className="text-xs text-soft-gray font-light italic max-w-4xl mx-auto leading-relaxed">
               * Note: All prices are subject to change and may be slightly negotiable based on specific requests.
-              For Knotless Braids, exact pricing within the stated ranges will depend on the specific braid size selected (Small, SMedium, Medium, Large, or X-Large).
+              For Knotless Braids, exact pricing depends on the specific braid size selected. Home service for makeup and styling carries an additional charge based on location and transportation.
             </p>
           </div>
           
@@ -616,7 +619,7 @@ function App() {
             
             <div className="training-reveal w-full lg:w-1/2 relative">
               <div className="aspect-[4/3] overflow-hidden rounded-3xl shadow-lg border border-charcoal/5">
-                <img src="/images/training_class.jpg?v=4" alt="Beauty Training Class" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
+                <img src="/images/training_class.jpg?v=5" alt="Beauty Training Class" className="w-full h-full object-cover contrast-105 saturate-105" loading="lazy" />
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-champagne/10 rounded-full blur-2xl z-[-1]"></div>
             </div>
@@ -624,9 +627,9 @@ function App() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
             {[
-              { title: "Makeup & Gele Mastery", time: "16-week intensive", desc: "Master bridal glam, editorial looks, and traditional headwrap styling.", img: "/images/training_gele.jpg?v=4" },
-              { title: "Nail Technology", time: "24-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians.", img: "/images/training_nails.jpg?v=4" },
-              { title: "Hair Styling & Wigs", time: "12-week workshop", desc: "Installations, braiding, custom wig making, and styling.", img: "/images/training_hair.jpg?v=4" }
+              { title: "Makeup & Gele Mastery", time: "16-week intensive", desc: "Master bridal glam, editorial looks, and traditional headwrap styling.", img: "/images/training_gele.jpg?v=5" },
+              { title: "Nail Technology", time: "24-week certification", desc: "Gel, acrylics, nail art, and business skills for aspiring technicians.", img: "/images/training_nails.jpg?v=5" },
+              { title: "Hair Styling & Wigs", time: "12-week workshop", desc: "Installations, braiding, custom wig making, and styling.", img: "/images/training_hair.jpg?v=5" }
             ].map((course, idx) => (
               <div key={idx} className="training-reveal bg-white border border-charcoal/10 hover:border-champagne shadow-sm cursor-pointer group rounded-3xl overflow-hidden flex flex-col transition-colors duration-500">
                 <div className="h-56 w-full overflow-hidden bg-gray-100">
