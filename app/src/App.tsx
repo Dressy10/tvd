@@ -37,6 +37,7 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
+  // THIS LOCKS THE BACKGROUND SCROLL WHEN POLICIES ARE OPEN
   useEffect(() => {
     if (showPolicies) {
       document.body.style.overflow = 'hidden';
@@ -99,6 +100,16 @@ function App() {
       ]
     },
     {
+      category: "Pedicure & Toe Services",
+      items: [
+        { name: "Dry Pedicure", price: "₦1,000" },
+        { name: "Classic Pedicure (With Massage)", price: "₦6,000" },
+        { name: "Jelly Pedicure", price: "₦10,000" },
+        { name: "Big Toe (Fix & Paint)", price: "₦1,500" },
+        { name: "All Toes (Fix & Paint)", price: "₦3,000" },
+      ]
+    },
+    {
       category: "Knotless Braids",
       items: [
         { name: "Shoulder Length (Small to X-Large)", price: "₦3,500 — ₦5,000" },
@@ -141,11 +152,19 @@ function App() {
     {
       category: "Hair Care & Extras",
       items: [
-        { name: "Washing / Cutting & Trimming", price: "₦1,000 — ₦3,000" },
-        { name: "Bleaching of Hair", price: "₦6,000" },
+        { name: "Washing", price: "₦1,000 — ₦2,000" },
+        { name: "Retouching", price: "₦1,500 — ₦2,000" },
+        { name: "Bleaching / Cutting & Trimming", price: "₦6,000 / ₦3,000" },
         { name: "Cleaning Frontal / Tinting Lace", price: "₦500 / ₦1,000" },
-        { name: "Extra Length / Extra Small Size Add-on", price: "₦1,500 / ₦2,000" },
-        { name: "Boho / Goddess Braids Add-on", price: "₦1,500" },
+        { name: "Extras (Extra Length / Small / Boho)", price: "₦1,500 — ₦2,000" },
+      ]
+    },
+    {
+      category: "Piercing Services",
+      items: [
+        { name: "Nostril (Gun / Needle)", price: "₦3,000 / ₦5,000" },
+        { name: "Septum", price: "₦10,000" },
+        { name: "Ear (Gun)", price: "₦5,000" },
       ]
     },
     {
@@ -154,42 +173,45 @@ function App() {
         { name: "Event Decoration", price: "Custom Quote" },
         { name: "Bridal / Studio Glam", price: "Custom Quote" },
         { name: "Traditional Gele", price: "Custom Quote" },
-        { name: "Piercing", price: "Custom Quote" },
       ]
     }
   ];
 
   const portfolioData = [
+    // Events
     { id: 1, src: '/images/portfolio_event1.jpg?v=4', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=4', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 3, src: '/images/portfolio_event3.jpg?v=4', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
     
+    // Makeup
     { id: 4, src: '/images/portfolio_makeup1.jpg?v=4', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 5, src: '/images/portfolio_makeup2.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 6, src: '/images/portfolio_makeup3.jpg?v=4', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
-    { id: 7, src: '/images/portfolio_makeup4.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
+    { id: 6, src: '/images/portfolio_makeup3.png?v=4', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
+    { id: 7, src: '/images/portfolio_makeup4.png?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
 
+    // Hair
     { id: 8, src: '/images/portfolio_hair1.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
     { id: 9, src: '/images/portfolio_hair2.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
     { id: 10, src: '/images/portfolio_hair3.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
-    { id: 11, src: '/images/portfolio_hair4.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 12, src: '/images/portfolio_hair5.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
-    { id: 13, src: '/images/portfolio_hair6.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
-    { id: 14, src: '/images/portfolio_hair7.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
-    { id: 15, src: '/images/portfolio_hair8.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 16, src: '/images/portfolio_hair9.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
-    { id: 17, src: '/images/portfolio_hair10.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
+    { id: 11, src: '/images/portfolio_hair4.png?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 12, src: '/images/portfolio_hair5.png?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
+    { id: 13, src: '/images/portfolio_hair6.png?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 14, src: '/images/portfolio_hair7.png?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
+    { id: 15, src: '/images/portfolio_hair8.png?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 16, src: '/images/portfolio_hair9.png?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
+    { id: 17, src: '/images/portfolio_hair10.png?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
 
+    // Nails
     { id: 18, src: '/images/portfolio_nails1.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
     { id: 19, src: '/images/portfolio_nails2.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
-    { id: 20, src: '/images/portfolio_nails3.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
-    { id: 21, src: '/images/portfolio_nails4.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 22, src: '/images/portfolio_nails5.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 23, src: '/images/portfolio_nails6.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
-    { id: 24, src: '/images/portfolio_nails7.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-16' },
-    { id: 25, src: '/images/portfolio_nails8.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
-    { id: 26, src: '/images/portfolio_nails9.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
-    { id: 27, src: '/images/portfolio_nails10.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
+    { id: 20, src: '/images/portfolio_nails3.png?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
+    { id: 21, src: '/images/portfolio_nails4.png?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 22, src: '/images/portfolio_nails5.png?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 23, src: '/images/portfolio_nails6.png?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
+    { id: 24, src: '/images/portfolio_nails7.png?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-16' },
+    { id: 25, src: '/images/portfolio_nails8.png?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-4' },
+    { id: 26, src: '/images/portfolio_nails9.png?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
+    { id: 27, src: '/images/portfolio_nails10.png?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
   ];
 
   const filteredPortfolio = activeFilter === 'All' 
@@ -532,14 +554,12 @@ function App() {
                 <h3 className="font-display text-2xl text-charcoal mb-8 border-b border-charcoal/10 pb-4">
                   {section.category}
                 </h3>
-                {/* Changed gap-6 to gap-4 to tighten spacing without the dotted lines */}
                 <div className="flex flex-col gap-4">
                   {section.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="flex items-start justify-between group py-1">
                       <span className="text-sm font-light text-charcoal pr-4 leading-snug">
                         {item.name}
                       </span>
-                      {/* Removed the border-dotted leader line entirely for a minimalist, editorial aesthetic */}
                       <span className="text-sm font-medium text-charcoal pl-4 font-mono tracking-wide text-right shrink-0">
                         {item.price}
                       </span>
