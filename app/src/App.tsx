@@ -33,6 +33,7 @@ function App() {
   const nailsRef = useRef<HTMLDivElement>(null);
   const makeupRef = useRef<HTMLDivElement>(null);
   const trainingRef = useRef<HTMLDivElement>(null);
+  const pricingRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -79,19 +80,99 @@ function App() {
     }
   };
 
+  const pricingData = [
+    {
+      category: "Gel Polish Services",
+      items: [
+        { name: "Short (No Design / With Design)", price: "₦5,500 / ₦6,500" },
+        { name: "Medium (No Design / With Design)", price: "₦6,000 / ₦7,500" },
+        { name: "Long (No Design / With Design)", price: "₦6,500 / ₦8,500" },
+        { name: "Add-ons (Charms, Chrome, 3D)", price: "+ ₦300 per finger" },
+      ]
+    },
+    {
+      category: "Acrylic Nail Sets",
+      items: [
+        { name: "Extra Short / Short", price: "₦8,000 / ₦9,000" },
+        { name: "Medium / Long", price: "₦11,000 / ₦13,000" },
+        { name: "Extra Long (xlong)", price: "₦16,000" },
+        { name: "XXL / XXXL", price: "₦18,000 / ₦20,000" },
+      ]
+    },
+    {
+      category: "Knotless Braids",
+      items: [
+        { name: "Shoulder Length (Small to X-Large)", price: "₦3,500 - ₦5,000" },
+        { name: "Mid-Back Length (Small to X-Large)", price: "₦4,500 - ₦6,500" },
+        { name: "Waist Length (Small to X-Large)", price: "₦6,000 - ₦8,000" },
+        { name: "Bum Length (Small to X-Large)", price: "₦7,500 - ₦9,500" },
+        { name: "Knee Length (Small to X-Large)", price: "₦8,000 - ₦9,500" },
+      ]
+    },
+    {
+      category: "Cornrows & Shuku",
+      items: [
+        { name: "Normal All Back / Bald Braids", price: "₦1,000 / ₦2,000" },
+        { name: "6–12 Pieces (Bum Length)", price: "₦4,000 - ₦5,000" },
+        { name: "16–20 Pieces / Extra Small (Bum Length)", price: "₦5,000 / ₦7,000" },
+        { name: "Shuku (Shoulder / Waist Length)", price: "₦4,000 / ₦6,000" },
+        { name: "Shuku (Bum / Knee Length)", price: "₦7,000 / ₦8,000" },
+      ]
+    },
+    {
+      category: "Twists & French Curls",
+      items: [
+        { name: "Natural Twist / Mini Twist", price: "₦2,000 / ₦5,000" },
+        { name: "Jumbo / Micro Twist", price: "₦7,000 / ₦7,500" },
+        { name: "Island Twist", price: "₦8,000" },
+        { name: "French Curls (Shoulder / Mid-Back)", price: "₦5,000 / ₦6,000" },
+        { name: "French Curls (Waist Length)", price: "₦8,000" },
+      ]
+    },
+    {
+      category: "Wig Installation & Styling",
+      items: [
+        { name: "Closure / Frontal Installation", price: "₦7,000 / ₦10,000" },
+        { name: "Pack Install / Weavon + Frontal", price: "₦12,000 / ₦15,000" },
+        { name: "Glueless Styling / Gel Up", price: "₦8,500 / ₦3,500" },
+        { name: "Wigging (Closure / Frontal)", price: "₦5,000 / ₦7,000" },
+        { name: "Revamping / Styling (Straight, Roll, Curl)", price: "From ₦3,000" },
+      ]
+    },
+    {
+      category: "Hair Care & Extras",
+      items: [
+        { name: "Washing / Cutting & Trimming", price: "₦1,000 - ₦3,000" },
+        { name: "Bleaching of Hair", price: "₦6,000" },
+        { name: "Cleaning Frontal / Tinting Lace", price: "₦500 / ₦1,000" },
+        { name: "Extra Length / Extra Small Size Add-on", price: "+ ₦1,500 / ₦2,000" },
+        { name: "Boho / Goddess Braids Add-on", price: "+ ₦1,500" },
+      ]
+    },
+    {
+      category: "Makeup & Events",
+      items: [
+        { name: "Event Decoration", price: "Custom Quote" },
+        { name: "Bridal / Studio Glam", price: "Custom Quote" },
+        { name: "Traditional Gele", price: "Custom Quote" },
+        { name: "Piercing", price: "Custom Quote" },
+      ]
+    }
+  ];
+
   const portfolioData = [
     // Events
     { id: 1, src: '/images/portfolio_event1.jpg?v=4', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=4', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 3, src: '/images/portfolio_event3.jpg?v=4', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
     
-    // Makeup (4 images)
+    // Makeup
     { id: 4, src: '/images/portfolio_makeup1.jpg?v=4', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 5, src: '/images/portfolio_makeup2.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 6, src: '/images/portfolio_makeup3.jpg?v=4', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
     { id: 7, src: '/images/portfolio_makeup4.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
 
-    // Hair (10 images)
+    // Hair
     { id: 8, src: '/images/portfolio_hair1.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
     { id: 9, src: '/images/portfolio_hair2.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
     { id: 10, src: '/images/portfolio_hair3.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
@@ -103,7 +184,7 @@ function App() {
     { id: 16, src: '/images/portfolio_hair9.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
     { id: 17, src: '/images/portfolio_hair10.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
 
-    // Nails (10 images)
+    // Nails
     { id: 18, src: '/images/portfolio_nails1.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
     { id: 19, src: '/images/portfolio_nails2.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
     { id: 20, src: '/images/portfolio_nails3.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
@@ -156,6 +237,7 @@ function App() {
         { ref: hairRef, class: '.hair-reveal' },
         { ref: nailsRef, class: '.nails-reveal' },
         { ref: makeupRef, class: '.makeup-reveal' },
+        { ref: pricingRef, class: '.pricing-reveal' },
       ];
 
       sections.forEach(({ ref, class: className }) => {
@@ -187,6 +269,7 @@ function App() {
 
   const navLinks = [
     { label: 'Services', ref: servicesRef },
+    { label: 'Pricing', ref: pricingRef },
     { label: 'Portfolio', ref: portfolioRef },
     { label: 'Training', ref: trainingRef },
     { label: 'Contact', ref: contactRef },
@@ -287,10 +370,6 @@ function App() {
               Crafting the <span className="italic font-serif text-white">perfect vibe.</span>
             </h1>
           </div>
-          
-          <p className="hero-subheadline mt-8 md:mt-10 text-center max-w-md text-sm md:text-lg font-light tracking-[0.15em] leading-relaxed text-white/95 drop-shadow-xl italic font-serif">
-            ...everything beauty and events
-          </p>
           
           <div className="hero-cta mt-12">
             <button 
@@ -436,6 +515,60 @@ function App() {
           >
             Book makeup session
           </button>
+        </div>
+      </section>
+
+      {/* Section 7.5: Pricing Rate Card */}
+      <section ref={pricingRef} className="py-24 lg:py-40 bg-ivory border-t border-charcoal/5">
+        <div className="px-6 lg:px-16 max-w-6xl mx-auto">
+          <div className="pricing-reveal flex flex-col items-center text-center mb-20">
+            <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4">Investment</span>
+            <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal">
+              Rate Card
+            </h2>
+            <p className="mt-6 text-soft-gray font-light max-w-xl leading-relaxed">
+              Transparent pricing for premium services. For highly customized event setups, please reach out for a tailored quote.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-24">
+            {pricingData.map((section, idx) => (
+              <div key={idx} className="pricing-reveal">
+                <h3 className="font-display text-2xl text-charcoal mb-8 border-b border-charcoal/10 pb-4">
+                  {section.category}
+                </h3>
+                <div className="flex flex-col gap-6">
+                  {section.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="flex items-end justify-between group">
+                      <span className="text-sm font-light text-charcoal bg-ivory pr-4 relative z-10">
+                        {item.name}
+                      </span>
+                      <div className="flex-grow border-b border-dotted border-charcoal/20 mb-1 mx-2 transition-colors duration-300 group-hover:border-champagne"></div>
+                      <span className="text-sm font-medium text-charcoal bg-ivory pl-4 relative z-10 font-mono tracking-wide">
+                        {item.price}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pricing-reveal mt-12 text-center border-t border-charcoal/5 pt-8">
+            <p className="text-xs text-soft-gray font-light italic">
+              * Note: All prices are subject to change and may be slightly negotiable based on specific requests.
+              For Knotless Braids, exact pricing within the stated ranges will depend on the specific braid size selected (Small, SMedium, Medium, Large, or X-Large).
+            </p>
+          </div>
+          
+          <div className="pricing-reveal mt-16 text-center">
+            <button 
+              onClick={() => scrollToSection(contactRef)}
+              className="btn-editorial py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full text-white bg-charcoal hover:bg-champagne hover:text-charcoal transition-colors duration-300"
+            >
+              Book Your Slot
+            </button>
+          </div>
         </div>
       </section>
 
