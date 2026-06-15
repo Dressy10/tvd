@@ -37,7 +37,6 @@ function App() {
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
-  // THIS LOCKS THE BACKGROUND SCROLL WHEN POLICIES ARE OPEN
   useEffect(() => {
     if (showPolicies) {
       document.body.style.overflow = 'hidden';
@@ -87,7 +86,7 @@ function App() {
         { name: "Short (No Design / With Design)", price: "₦5,500 / ₦6,500" },
         { name: "Medium (No Design / With Design)", price: "₦6,000 / ₦7,500" },
         { name: "Long (No Design / With Design)", price: "₦6,500 / ₦8,500" },
-        { name: "Add-ons (Charms, Chrome, 3D)", price: "+ ₦300 per finger" },
+        { name: "Add-ons (Charms, Chrome, 3D)", price: "₦300 per finger" },
       ]
     },
     {
@@ -102,18 +101,18 @@ function App() {
     {
       category: "Knotless Braids",
       items: [
-        { name: "Shoulder Length (Small to X-Large)", price: "₦3,500 - ₦5,000" },
-        { name: "Mid-Back Length (Small to X-Large)", price: "₦4,500 - ₦6,500" },
-        { name: "Waist Length (Small to X-Large)", price: "₦6,000 - ₦8,000" },
-        { name: "Bum Length (Small to X-Large)", price: "₦7,500 - ₦9,500" },
-        { name: "Knee Length (Small to X-Large)", price: "₦8,000 - ₦9,500" },
+        { name: "Shoulder Length (Small to X-Large)", price: "₦3,500 — ₦5,000" },
+        { name: "Mid-Back Length (Small to X-Large)", price: "₦4,500 — ₦6,500" },
+        { name: "Waist Length (Small to X-Large)", price: "₦6,000 — ₦8,000" },
+        { name: "Bum Length (Small to X-Large)", price: "₦7,500 — ₦9,500" },
+        { name: "Knee Length (Small to X-Large)", price: "₦8,000 — ₦9,500" },
       ]
     },
     {
       category: "Cornrows & Shuku",
       items: [
         { name: "Normal All Back / Bald Braids", price: "₦1,000 / ₦2,000" },
-        { name: "6–12 Pieces (Bum Length)", price: "₦4,000 - ₦5,000" },
+        { name: "6–12 Pieces (Bum Length)", price: "₦4,000 — ₦5,000" },
         { name: "16–20 Pieces / Extra Small (Bum Length)", price: "₦5,000 / ₦7,000" },
         { name: "Shuku (Shoulder / Waist Length)", price: "₦4,000 / ₦6,000" },
         { name: "Shuku (Bum / Knee Length)", price: "₦7,000 / ₦8,000" },
@@ -136,17 +135,17 @@ function App() {
         { name: "Pack Install / Weavon + Frontal", price: "₦12,000 / ₦15,000" },
         { name: "Glueless Styling / Gel Up", price: "₦8,500 / ₦3,500" },
         { name: "Wigging (Closure / Frontal)", price: "₦5,000 / ₦7,000" },
-        { name: "Revamping / Styling (Straight, Roll, Curl)", price: "From ₦3,000" },
+        { name: "Revamping / Styling", price: "From ₦3,000" },
       ]
     },
     {
       category: "Hair Care & Extras",
       items: [
-        { name: "Washing / Cutting & Trimming", price: "₦1,000 - ₦3,000" },
+        { name: "Washing / Cutting & Trimming", price: "₦1,000 — ₦3,000" },
         { name: "Bleaching of Hair", price: "₦6,000" },
         { name: "Cleaning Frontal / Tinting Lace", price: "₦500 / ₦1,000" },
-        { name: "Extra Length / Extra Small Size Add-on", price: "+ ₦1,500 / ₦2,000" },
-        { name: "Boho / Goddess Braids Add-on", price: "+ ₦1,500" },
+        { name: "Extra Length / Extra Small Size Add-on", price: "₦1,500 / ₦2,000" },
+        { name: "Boho / Goddess Braids Add-on", price: "₦1,500" },
       ]
     },
     {
@@ -161,18 +160,15 @@ function App() {
   ];
 
   const portfolioData = [
-    // Events
     { id: 1, src: '/images/portfolio_event1.jpg?v=4', category: 'Events', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 2, src: '/images/portfolio_event2.jpg?v=4', category: 'Events', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 3, src: '/images/portfolio_event3.jpg?v=4', category: 'Events', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-16' },
     
-    // Makeup
     { id: 4, src: '/images/portfolio_makeup1.jpg?v=4', category: 'Makeup', aspect: 'aspect-[3/4]', offset: 'mt-0' },
     { id: 5, src: '/images/portfolio_makeup2.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-8' },
     { id: 6, src: '/images/portfolio_makeup3.jpg?v=4', category: 'Makeup', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-12' },
     { id: 7, src: '/images/portfolio_makeup4.jpg?v=4', category: 'Makeup', aspect: 'aspect-square', offset: 'mt-0 lg:mt-4' },
 
-    // Hair
     { id: 8, src: '/images/portfolio_hair1.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0' },
     { id: 9, src: '/images/portfolio_hair2.jpg?v=4', category: 'Hair', aspect: 'aspect-square', offset: 'mt-0 lg:mt-12' },
     { id: 10, src: '/images/portfolio_hair3.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-8' },
@@ -184,7 +180,6 @@ function App() {
     { id: 16, src: '/images/portfolio_hair9.jpg?v=4', category: 'Hair', aspect: 'aspect-[3/4]', offset: 'mt-0 lg:mt-4' },
     { id: 17, src: '/images/portfolio_hair10.jpg?v=4', category: 'Hair', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
 
-    // Nails
     { id: 18, src: '/images/portfolio_nails1.jpg?v=4', category: 'Nails', aspect: 'aspect-square', offset: 'mt-0 lg:mt-16' },
     { id: 19, src: '/images/portfolio_nails2.jpg?v=4', category: 'Nails', aspect: 'aspect-[4/5]', offset: 'mt-0 lg:mt-8' },
     { id: 20, src: '/images/portfolio_nails3.jpg?v=4', category: 'Nails', aspect: 'aspect-[3/4]', offset: 'mt-0' },
@@ -537,14 +532,15 @@ function App() {
                 <h3 className="font-display text-2xl text-charcoal mb-8 border-b border-charcoal/10 pb-4">
                   {section.category}
                 </h3>
-                <div className="flex flex-col gap-6">
+                {/* Changed gap-6 to gap-4 to tighten spacing without the dotted lines */}
+                <div className="flex flex-col gap-4">
                   {section.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="flex items-end justify-between group">
-                      <span className="text-sm font-light text-charcoal bg-ivory pr-4 relative z-10">
+                    <div key={itemIdx} className="flex items-start justify-between group py-1">
+                      <span className="text-sm font-light text-charcoal pr-4 leading-snug">
                         {item.name}
                       </span>
-                      <div className="flex-grow border-b border-dotted border-charcoal/20 mb-1 mx-2 transition-colors duration-300 group-hover:border-champagne"></div>
-                      <span className="text-sm font-medium text-charcoal bg-ivory pl-4 relative z-10 font-mono tracking-wide">
+                      {/* Removed the border-dotted leader line entirely for a minimalist, editorial aesthetic */}
+                      <span className="text-sm font-medium text-charcoal pl-4 font-mono tracking-wide text-right shrink-0">
                         {item.price}
                       </span>
                     </div>
