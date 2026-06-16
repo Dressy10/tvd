@@ -28,6 +28,7 @@ function App() {
 
   const heroRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const ratesRef = useRef<HTMLDivElement>(null); // NEW: Ref for the rate card button
   const eventRef = useRef<HTMLDivElement>(null);
   const hairRef = useRef<HTMLDivElement>(null);
   const nailsRef = useRef<HTMLDivElement>(null);
@@ -181,12 +182,19 @@ function App() {
   }, []);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    // Add a slight offset for mobile so the button isn't hidden under the sticky nav
+    const yOffset = -80; 
+    const element = ref.current;
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
     setMobileMenuOpen(false);
   };
 
   const navLinks = [
     { label: 'Services', ref: servicesRef },
+    { label: 'Rates', ref: ratesRef }, // RESTORED: Now scrolls to the button
     { label: 'Portfolio', ref: portfolioRef },
     { label: 'Training', ref: trainingRef },
     { label: 'Contact', ref: contactRef },
@@ -228,31 +236,16 @@ function App() {
               }`}></span>
             </button>
           ))}
-          
-          {/* UPDATED: Desktop Nav Button Group */}
-          <div className="flex items-center gap-6">
-            <a 
-              href="/tvd_rate_card.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`text-xs uppercase tracking-[0.15em] transition-colors font-medium ${
-                isScrolled ? 'text-charcoal hover:text-champagne' : 'text-white hover:text-champagne'
-              }`}
-            >
-              Rates
-            </a>
-            <button 
-              onClick={() => scrollToSection(contactRef)}
-              className={`text-xs uppercase tracking-widest py-3 px-8 transition-colors duration-500 rounded-full ${
-                isScrolled 
-                  ? 'bg-charcoal text-white hover:bg-champagne hover:border-champagne' 
-                  : 'bg-white text-charcoal hover:bg-champagne hover:text-white'
-              }`}
-            >
-              Book
-            </button>
-          </div>
-
+          <button 
+            onClick={() => scrollToSection(contactRef)}
+            className={`text-xs uppercase tracking-widest py-3 px-8 transition-colors duration-500 rounded-full ${
+              isScrolled 
+                ? 'bg-charcoal text-white hover:bg-champagne hover:border-champagne' 
+                : 'bg-white text-charcoal hover:bg-champagne hover:text-white'
+            }`}
+          >
+            Book
+          </button>
         </div>
         
         <button 
@@ -280,17 +273,6 @@ function App() {
               {link.label}
             </button>
           ))}
-          
-          {/* UPDATED: Mobile Menu Rate Card Link */}
-          <a 
-            href="/tvd_rate_card.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="font-display text-4xl text-charcoal hover:text-champagne transition-colors font-light"
-          >
-            Rate Card
-          </a>
-
           <button 
             onClick={() => scrollToSection(contactRef)}
             className="btn-editorial mt-8 py-4 px-12 text-sm bg-charcoal text-white rounded-full"
@@ -314,7 +296,6 @@ function App() {
             </h1>
           </div>
           
-          {/* UPDATED: Hero CTA with the PDF Link */}
           <div className="hero-cta mt-12 flex flex-col sm:flex-row items-center justify-center gap-8">
             <button 
               onClick={() => scrollToSection(contactRef)}
@@ -322,16 +303,13 @@ function App() {
             >
               Book a session
             </button>
-            <a 
-              href="/tvd_rate_card.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <button 
+              onClick={() => scrollToSection(ratesRef)}
               className="text-xs uppercase tracking-[0.2em] text-white border-b border-white/40 pb-1 hover:text-champagne hover:border-champagne transition-colors drop-shadow-lg"
             >
-              View Rate Card
-            </a>
+              View Rates
+            </button>
           </div>
-
         </div>
       </section>
 
@@ -373,6 +351,22 @@ function App() {
                   </div>
                 </div>
               ))}
+
+              {/* NEW: Standalone Rate Card Button Area */}
+              <div ref={ratesRef} className="service-reveal mt-4 pt-4 flex justify-center lg:justify-start">
+                <a 
+                  href="/tvd_rate_card.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-white text-charcoal hover:bg-champagne hover:text-white hover:border-champagne transition-all duration-500 py-4 px-10 text-sm font-medium tracking-wide rounded-full shadow-sm border border-charcoal/10 flex items-center gap-3 group"
+                >
+                  Our rate card
+                  <svg className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>
