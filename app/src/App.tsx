@@ -303,12 +303,12 @@ function App() {
             >
               Book a session
             </button>
-            <button 
+            {/* <button 
               onClick={() => scrollToSection(ratesRef)}
               className="text-xs uppercase tracking-[0.2em] text-white border-b border-white/40 pb-1 hover:text-champagne hover:border-champagne transition-colors drop-shadow-lg"
             >
               View Rates
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
