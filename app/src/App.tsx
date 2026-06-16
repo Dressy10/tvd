@@ -33,7 +33,6 @@ function App() {
   const nailsRef = useRef<HTMLDivElement>(null);
   const makeupRef = useRef<HTMLDivElement>(null);
   const trainingRef = useRef<HTMLDivElement>(null);
-  const pricingRef = useRef<HTMLDivElement>(null);
   const portfolioRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
@@ -79,106 +78,6 @@ function App() {
       setFormStatus('Error sending. Try again.');
     }
   };
-
-  const pricingData = [
-    {
-      category: "Gel Polish Services",
-      items: [
-        { name: "Short (No Design / With Design)", price: "₦5,500 / ₦6,500" },
-        { name: "Medium (No Design / With Design)", price: "₦6,000 / ₦7,500" },
-        { name: "Long (No Design / With Design)", price: "₦6,500 / ₦8,500" },
-        { name: "Add-ons (Charms, Chrome, 3D)", price: "₦300 per finger" },
-      ]
-    },
-    {
-      category: "Acrylic Nail Sets",
-      items: [
-        { name: "Extra Short / Short", price: "₦8,000 / ₦9,000" },
-        { name: "Medium / Long", price: "₦11,000 / ₦13,000" },
-        { name: "Extra Long (xlong)", price: "₦16,000" },
-        { name: "XXL / XXXL", price: "₦18,000 / ₦20,000" },
-      ]
-    },
-    {
-      category: "Pedicure & Toe Services",
-      items: [
-        { name: "Dry Pedicure", price: "₦1,000" },
-        { name: "Classic Pedicure (With Massage)", price: "₦6,000" },
-        { name: "Jelly Pedicure", price: "₦10,000" },
-        { name: "Big Toe (Fix & Paint)", price: "₦1,500" },
-        { name: "All Toes (Fix & Paint)", price: "₦3,000" },
-      ]
-    },
-    {
-      category: "Knotless Braids",
-      items: [
-        { name: "Shoulder Length (Small to X-Large)", price: "₦3,500 — ₦5,000" },
-        { name: "Mid-Back Length (Small to X-Large)", price: "₦4,500 — ₦6,500" },
-        { name: "Waist Length (Small to X-Large)", price: "₦6,000 — ₦8,000" },
-        { name: "Bum Length (Small to X-Large)", price: "₦7,500 — ₦9,500" },
-        { name: "Knee Length (Small to X-Large)", price: "₦8,000 — ₦9,500" },
-      ]
-    },
-    {
-      category: "Cornrows & Shuku",
-      items: [
-        { name: "Normal All Back / Bald Braids", price: "₦1,000 / ₦2,000" },
-        { name: "6–12 Pieces (Bum Length)", price: "₦4,000 — ₦5,000" },
-        { name: "16–20 Pieces / Extra Small (Bum Length)", price: "₦5,000 / ₦7,000" },
-        { name: "Shuku (Shoulder / Waist Length)", price: "₦4,000 / ₦6,000" },
-        { name: "Shuku (Bum / Knee Length)", price: "₦7,000 / ₦8,000" },
-      ]
-    },
-    {
-      category: "Twists & French Curls",
-      items: [
-        { name: "Natural Twist / Mini Twist", price: "₦2,000 / ₦5,000" },
-        { name: "Jumbo / Micro Twist", price: "₦7,000 / ₦7,500" },
-        { name: "Island Twist", price: "₦8,000" },
-        { name: "French Curls (Shoulder / Mid-Back)", price: "₦5,000 / ₦6,000" },
-        { name: "French Curls (Waist Length)", price: "₦8,000" },
-      ]
-    },
-    {
-      category: "Wig Installation & Styling",
-      items: [
-        { name: "Closure / Frontal Installation", price: "₦7,000 / ₦10,000" },
-        { name: "Pack Install / Weavon + Frontal", price: "₦12,000 / ₦15,000" },
-        { name: "Glueless Styling / Gel Up", price: "₦8,500 / ₦3,500" },
-        { name: "Wigging (Closure / Frontal)", price: "₦5,000 / ₦7,000" },
-        { name: "Revamping / Styling", price: "From ₦3,000" },
-      ]
-    },
-    {
-      category: "Hair Care & Extras",
-      items: [
-        { name: "Washing", price: "₦1,000 — ₦2,000" },
-        { name: "Retouching", price: "₦1,500 — ₦2,000" },
-        { name: "Bleaching / Cutting & Trimming", price: "₦6,000 / ₦3,000" },
-        { name: "Cleaning Frontal / Tinting Lace", price: "₦500 / ₦1,000" },
-        { name: "Extras (Extra Length / Small / Boho)", price: "₦1,500 — ₦2,000" },
-      ]
-    },
-    {
-      category: "Piercing Services",
-      items: [
-        { name: "Nostril (Gun / Needle)", price: "₦3,000 / ₦5,000" },
-        { name: "Septum", price: "₦10,000" },
-        { name: "Ear (Gun)", price: "₦5,000" },
-      ]
-    },
-    {
-      category: "Makeup & Events",
-      items: [
-        { name: "Regular / Photoshoot Glam", price: "₦10,000 / ₦12,000" },
-        { name: "Bridal Shower / Intro / Dedication", price: "₦15,000 — ₦20,000" },
-        { name: "Bridal Train (1 Person / 3 Persons)", price: "₦12,000 / ₦30,000" },
-        { name: "Bridal Glam (Base / With Touch-Up & Gele)", price: "₦50,000 / ₦70,000" },
-        { name: "Gele Tying (Regular / Bridal)", price: "₦2,000 / ₦10,000" },
-        { name: "Event Decoration", price: "Custom Quote" },
-      ]
-    }
-  ];
 
   const portfolioData = [
     // Events
@@ -256,8 +155,7 @@ function App() {
         { ref: eventRef, class: '.event-reveal' },
         { ref: hairRef, class: '.hair-reveal' },
         { ref: nailsRef, class: '.nails-reveal' },
-        { ref: makeupRef, class: '.makeup-reveal' },
-        { ref: pricingRef, class: '.pricing-reveal' },
+        { ref: makeupRef, class: '.makeup-reveal' }
       ];
 
       sections.forEach(({ ref, class: className }) => {
@@ -289,7 +187,6 @@ function App() {
 
   const navLinks = [
     { label: 'Services', ref: servicesRef },
-    { label: 'Pricing', ref: pricingRef },
     { label: 'Portfolio', ref: portfolioRef },
     { label: 'Training', ref: trainingRef },
     { label: 'Contact', ref: contactRef },
@@ -331,16 +228,31 @@ function App() {
               }`}></span>
             </button>
           ))}
-          <button 
-            onClick={() => scrollToSection(contactRef)}
-            className={`text-xs uppercase tracking-widest py-3 px-8 transition-colors duration-500 rounded-full ${
-              isScrolled 
-                ? 'bg-charcoal text-white hover:bg-champagne hover:border-champagne' 
-                : 'bg-white text-charcoal hover:bg-champagne hover:text-white'
-            }`}
-          >
-            Book
-          </button>
+          
+          {/* UPDATED: Desktop Nav Button Group */}
+          <div className="flex items-center gap-6">
+            <a 
+              href="/tvd_rate_card.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`text-xs uppercase tracking-[0.15em] transition-colors font-medium ${
+                isScrolled ? 'text-charcoal hover:text-champagne' : 'text-white hover:text-champagne'
+              }`}
+            >
+              Rates
+            </a>
+            <button 
+              onClick={() => scrollToSection(contactRef)}
+              className={`text-xs uppercase tracking-widest py-3 px-8 transition-colors duration-500 rounded-full ${
+                isScrolled 
+                  ? 'bg-charcoal text-white hover:bg-champagne hover:border-champagne' 
+                  : 'bg-white text-charcoal hover:bg-champagne hover:text-white'
+              }`}
+            >
+              Book
+            </button>
+          </div>
+
         </div>
         
         <button 
@@ -368,6 +280,17 @@ function App() {
               {link.label}
             </button>
           ))}
+          
+          {/* UPDATED: Mobile Menu Rate Card Link */}
+          <a 
+            href="/tvd_rate_card.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-display text-4xl text-charcoal hover:text-champagne transition-colors font-light"
+          >
+            Rate Card
+          </a>
+
           <button 
             onClick={() => scrollToSection(contactRef)}
             className="btn-editorial mt-8 py-4 px-12 text-sm bg-charcoal text-white rounded-full"
@@ -391,14 +314,24 @@ function App() {
             </h1>
           </div>
           
-          <div className="hero-cta mt-12">
+          {/* UPDATED: Hero CTA with the PDF Link */}
+          <div className="hero-cta mt-12 flex flex-col sm:flex-row items-center justify-center gap-8">
             <button 
               onClick={() => scrollToSection(contactRef)}
               className="btn-glass backdrop-blur-md bg-white/10 border border-white/30 text-white hover:bg-white hover:text-charcoal transition-all duration-500 py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full shadow-xl"
             >
               Book a session
             </button>
+            <a 
+              href="/tvd_rate_card.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs uppercase tracking-[0.2em] text-white border-b border-white/40 pb-1 hover:text-champagne hover:border-champagne transition-colors drop-shadow-lg"
+            >
+              View Rate Card
+            </a>
           </div>
+
         </div>
       </section>
 
@@ -535,59 +468,6 @@ function App() {
           >
             Book makeup session
           </button>
-        </div>
-      </section>
-
-      {/* Section 7.5: Pricing Rate Card */}
-      <section ref={pricingRef} className="py-24 lg:py-40 bg-ivory border-t border-charcoal/5">
-        <div className="px-6 lg:px-16 max-w-6xl mx-auto">
-          <div className="pricing-reveal flex flex-col items-center text-center mb-20">
-            <span className="font-mono text-xs uppercase tracking-[0.2em] text-soft-gray mb-4">Investment</span>
-            <h2 className="font-display text-4xl lg:text-5xl font-light text-charcoal">
-              Rate Card
-            </h2>
-            <p className="mt-6 text-soft-gray font-light max-w-xl leading-relaxed">
-              Transparent pricing for premium services. For highly customized event setups, please reach out for a tailored quote.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-24">
-            {pricingData.map((section, idx) => (
-              <div key={idx} className="pricing-reveal">
-                <h3 className="font-display text-2xl text-charcoal mb-8 border-b border-charcoal/10 pb-4">
-                  {section.category}
-                </h3>
-                <div className="flex flex-col gap-4">
-                  {section.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="flex items-start justify-between group py-1">
-                      <span className="text-sm font-light text-charcoal pr-4 leading-snug">
-                        {item.name}
-                      </span>
-                      <span className="text-sm font-medium text-charcoal pl-4 font-mono tracking-wide text-right shrink-0">
-                        {item.price}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="pricing-reveal mt-12 text-center border-t border-charcoal/5 pt-8">
-            <p className="text-xs text-soft-gray font-light italic max-w-4xl mx-auto leading-relaxed">
-              * Note: All prices are subject to change and may be slightly negotiable based on specific requests.
-              For Knotless Braids, exact pricing depends on the specific braid size selected. Home service for makeup and styling carries an additional charge based on location and transportation.
-            </p>
-          </div>
-          
-          <div className="pricing-reveal mt-16 text-center">
-            <button 
-              onClick={() => scrollToSection(contactRef)}
-              className="btn-editorial py-4 px-10 text-xs uppercase tracking-[0.2em] rounded-full text-white bg-charcoal hover:bg-champagne hover:text-charcoal transition-colors duration-300"
-            >
-              Book Your Slot
-            </button>
-          </div>
         </div>
       </section>
 
